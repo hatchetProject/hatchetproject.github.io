@@ -72,7 +72,7 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 - *2019.11* First Award of Zhiyuan Research Program
 
 # 📖 Educations
-- *2024.12 - current* &nbsp; PhD, University of Illinois at Chicago.
+- *2024.12 - current*&nbsp; PhD, University of Illinois at Chicago.
 - *2023.09 - 2024.12*&nbsp; PhD, Illinois Institute of Technology.
 - *2020.09 - 2023.03*&nbsp; Master, Shanghai Jiao Tong University.
 - *2016.09 - 2020.06*&nbsp; Undergraduate, [IEEE Honor Class](https://english.seiee.sjtu.edu.cn/english/info/8338.htm), Shanghai Jiao Tong University.
