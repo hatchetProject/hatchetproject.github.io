@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Haoxuan Wang"
-description              : "PhD student at University of Illinois at Chicago"
+description              : "PhD student at UIC. Focusing on ML Efficiency, 3D and Imbalanced Learning."
 repository               : "hatchetProject/hatchetproject.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Haoxuan Wang"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "UIC"
+  bio              : "University of Illinois Chicago"
   location         : "Chicago, USA"
   employer         :
   pubmed           : 
