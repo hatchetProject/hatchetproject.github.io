@@ -71,9 +71,11 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 - *2020.06* Graduation with honor, University Graduate Excellence Award of SJTU
 - *2019.11* First Award of Zhiyuan Research Program
 
-<!--# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. -->
+# 📖 Educations
+- *2024.12 - current* &nbsp;&nbsp; PhD, University of Illinois at Chicago.
+- *2023.09 - 2024.12*&nbsp; PhD, Illinois Institute of Technology.
+- *2020.09 - 2023.03*&nbsp; Master, Shanghai Jiao Tong University.
+- *2016.09 - 2020.06*&nbsp; Undergraduate, [IEEE Honor Class](https://english.seiee.sjtu.edu.cn/english/info/8338.htm), Shanghai Jiao Tong University.
 
 <!--# 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
