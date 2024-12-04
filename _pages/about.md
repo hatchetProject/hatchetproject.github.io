@@ -33,19 +33,20 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 
 [PTQ4DiT: Post-training Quantization for Diffusion Transformers](https://arxiv.org/abs/2405.16005)
 
-Junyi Wu*, **Haoxuan Wang***, Yuzhang Shang, Mubarak Shah, Yan Yan
+Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - Pioneering work for DiT quantization. 
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/ptq4dit.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">IJCAI 2023</div><img src='images/drst.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[PTQ4DiT: Post-training Quantization for Diffusion Transformers](https://arxiv.org/abs/2405.16005)
+[Learning Calibrated Uncertainties for Domain Shift:
+A Distributionally Robust Learning Approach](https://arxiv.org/pdf/2010.05784)
 
-Junyi Wu*, **Haoxuan Wang***, Yuzhang Shang, Mubarak Shah, Yan Yan
+**Haoxuan Wang**, Zhiding Yu, Yisong Yue, Animashree Anandkumar, Anqi Liu and Junchi Yan
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - Pioneering work for DiT quantization. 
