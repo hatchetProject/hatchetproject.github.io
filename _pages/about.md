@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a second-year PhD student (2023-) in the Department of Computer Science at University of Illinois at Chicago (UIC), where I am fortunate to be supervised by Prof. [Yan Yan](https://tomyan555.github.io/). Prior to joining UIC, I spent a year at Illinois Institute of Technology. I hold both a bachelor's and a master's degree from Shanghai Jiao Tong University, where I was fortune to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). Additionally, I had a wonderful time working as a research intern with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/) at Caltech.
+I am a second-year PhD student (2023-) in the Department of Computer Science at University of Illinois at Chicago (UIC), supervised by Prof. [Yan Yan](https://tomyan555.github.io/). Prior to joining UIC, I spent a year at Illinois Institute of Technology. I hold both a bachelor's and a master's degree from Shanghai Jiao Tong University, where I was fortune to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). Additionally, I had a wonderful time working as a research intern with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/) at Caltech.
 
 My research interests include Machine Learning Efficiency, Imbalanced Learning, and 3D vision. Most of the publications can be accessed [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
 
@@ -72,7 +72,7 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 - *2019.11* First Award of Zhiyuan Research Program
 
 # 📖 Educations
-- *2024.12 - current* &nbsp;&nbsp; PhD, University of Illinois at Chicago.
+- *2024.12 - current* &nbsp; PhD, University of Illinois at Chicago.
 - *2023.09 - 2024.12*&nbsp; PhD, Illinois Institute of Technology.
 - *2020.09 - 2023.03*&nbsp; Master, Shanghai Jiao Tong University.
 - *2016.09 - 2020.06*&nbsp; Undergraduate, [IEEE Honor Class](https://english.seiee.sjtu.edu.cn/english/info/8338.htm), Shanghai Jiao Tong University.
