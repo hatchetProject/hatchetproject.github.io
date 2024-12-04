@@ -26,7 +26,7 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 - *2024.11*: &nbsp; Serving as the web co-chair for ICMR 2025
 - *2024.06*: &nbsp; 1 paper accepted to NeurIPS 2024
 
-# 📝 Publications 
+# 📝 Selected Publications 
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/ptq4dit.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
