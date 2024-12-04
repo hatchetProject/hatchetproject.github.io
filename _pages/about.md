@@ -23,7 +23,7 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 
 
 # 🔥 News
-- *2024.06*: &nbsp; Serving as a web co-chair for ICMR 2025
+- *2024.11*: &nbsp; Serving as a web co-chair for ICMR 2025
 - *2024.06*: &nbsp; 1 paper accepted to NeurIPS 2024
 
 # 📝 Publications 
@@ -66,16 +66,17 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 
 # 🎖 Honors and Awards
-- *2021.10* 
-- *2021.09*  
+- *2021-2022* First Award of SJTU scholarship
+- *2020.06* Graduation with honor, University Graduate Excellence Award of SJTU
+- *2019.11* First Award of Zhiyuan Research Program
 
 <!--# 📖 Educations
 - *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. --!>
 
-# 💬 Invited Talks
+<!--# 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) --!>
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.--!>
+<!--# 💻 Internships
+- *2019.05 - 2020.02*, [Lorem](https://github.com/), China. --!>
