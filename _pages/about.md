@@ -47,7 +47,8 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 **Haoxuan Wang**, Yuzhang Shang, Zhihang Yuan, Junyi Wu, Junchi Yan, Yan Yan
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:2osOgNQ5qMEC) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong>
+[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:2osOgNQ5qMEC) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong> | ![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/QuEST)
+
 - Parameter efficient finetuning method for diffusion model quantization. 
 </div>
 </div>
