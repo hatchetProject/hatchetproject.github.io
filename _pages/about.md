@@ -67,7 +67,7 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 
 # 🎖 Honors and Awards
-- *2021-2022* First Award of SJTU scholarship
+- *2021-22* First Award of SJTU scholarship
 - *2020.06* Graduation with honor, University Graduate Excellence Award of SJTU
 - *2019.11* First Award of Zhiyuan Research Program
 
