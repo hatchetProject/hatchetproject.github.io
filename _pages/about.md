@@ -36,7 +36,7 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 
 Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:d1gkVwhDpl0C'></span></strong>
+[**Project**](https://github.com/ichbill/LTDD) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:d1gkVwhDpl0C'></span></strong>
 - Pioneering work confronting biased dataset distillation. 
 </div>
 </div>
@@ -48,7 +48,7 @@ Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
 Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:d1gkVwhDpl0C'></span></strong>
+[**Project**](https://github.com/adreamwu/PTQ4DiT) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:d1gkVwhDpl0C'></span></strong>
 - Pioneering work for DiT quantization. 
 </div>
 </div>
