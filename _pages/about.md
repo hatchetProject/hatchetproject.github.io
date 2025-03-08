@@ -23,10 +23,23 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 
 
 # 🔥 News
+- *2025.03*: &nbsp; 1 paper accepted to CVPR 2025
 - *2024.11*: &nbsp; Serving as the web co-chair for ICMR 2025
 - *2024.06*: &nbsp; 1 paper accepted to NeurIPS 2024
 
 # 📝 Selected Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2025</div><img src='images/ltdd.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Distilling Long-tailed Datasets](https://arxiv.org/pdf/2408.14506)
+
+Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
+
+[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:d1gkVwhDpl0C'></span></strong>
+- Pioneering work for DiT quantization. 
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/ptq4dit.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -67,7 +80,6 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 [Leveraging Angular Information Between Feature and Classifier for Long-tailed Learning: A Prediction Reformulation Approach](https://arxiv.org/pdf/2212.01565), **Haoxuan Wang**, Junchi Yan
 
-[Distilling Long-tailed Datasets](https://arxiv.org/pdf/2408.14506), Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
 # 🎖 Honors and Awards
 - *2021-22* First Award of SJTU scholarship
