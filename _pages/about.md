@@ -80,6 +80,7 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 [Leveraging Angular Information Between Feature and Classifier for Long-tailed Learning: A Prediction Reformulation Approach](https://arxiv.org/pdf/2212.01565), **Haoxuan Wang**, Junchi Yan
 
+[CaO$_2$: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation](), **Haoxuan Wang**, Zhenghao Zhao, Junyi Wu, Yuzhang Shang, Gaowen Liu, Yan Yan
 
 # 🎖 Honors and Awards
 - *2021-22* First Award of SJTU scholarship
