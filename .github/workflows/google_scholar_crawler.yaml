@@ -15,6 +15,8 @@ jobs:
         sudo apt-get install python3-setuptools
     - name: Run
       run: |
+        git config --global user.email "hwang339@uic.edu"
+        git config --global user.name "hatchetProject"
         cd ./google_scholar_crawler
         pip3 install -r requirements.txt
         python3 main.py
