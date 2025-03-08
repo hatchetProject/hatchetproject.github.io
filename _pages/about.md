@@ -37,7 +37,7 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:d1gkVwhDpl0C'></span></strong>
-- Pioneering work for DiT quantization. 
+- Pioneering work confronting biased dataset distillation. 
 </div>
 </div>
 
