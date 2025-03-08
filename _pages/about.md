@@ -44,7 +44,7 @@ Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/ptq4dit.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[PTQ4DiT: Post-training Quantization for Diffusion Transformers](https://arxiv.org/abs/2405.16005)
+[PTQ4DiT: Post-training Quantization for Diffusion Transformers](https://arxiv.org/abs/2405.16005) [![GitHub Repo stars](https://img.shields.io/github/stars/adreamwu/PTQ4DIT)](https://github.com/hatchetProject/QuEST)
 
 Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
