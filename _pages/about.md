@@ -36,7 +36,7 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 
 Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
-[**Project**](https://github.com/ichbill/LTDD)
+[**Code**](https://github.com/ichbill/LTDD)
 - Pioneering work confronting biased dataset distillation. 
 </div>
 </div>
@@ -48,7 +48,7 @@ Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
 Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
-[**Project**](https://github.com/adreamwu/PTQ4DiT)
+[**Code**](https://github.com/adreamwu/PTQ4DiT)
 - Pioneering work for DiT quantization. 
 </div>
 </div>
@@ -60,7 +60,7 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 **Haoxuan Wang**, Yuzhang Shang, Zhihang Yuan, Junyi Wu, Junchi Yan, Yan Yan
 
-[**Project**](https://github.com/hatchetProject/QuEST)  [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/QuEST)](https://github.com/hatchetProject/QuEST)
+[**Code**](https://github.com/hatchetProject/QuEST)  [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/QuEST)](https://github.com/hatchetProject/QuEST)
 
 - Parameter efficient finetuning method for diffusion model quantization. 
 </div>
