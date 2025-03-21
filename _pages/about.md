@@ -48,7 +48,7 @@ Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
 Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
-[**Code**](https://github.com/adreamwu/PTQ4DiT) [![GitHub Repo stars](https://img.shields.io/github/stars/adreamwu/PTQ4DIT)](https://github.com/hatchetProject/QuEST)
+[**Code**](https://github.com/adreamwu/PTQ4DiT) [![GitHub Repo stars](https://img.shields.io/github/stars/adreamwu/PTQ4DIT)](https://github.com/adreamwu/PTQ4DiT)
 - Pioneering work for DiT quantization. 
 </div>
 </div>
