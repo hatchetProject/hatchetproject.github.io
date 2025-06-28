@@ -23,11 +23,40 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 
 
 # 🔥 News
+- *2025.06*: &nbsp; 2 papers accepted to ICCV 2025
 - *2025.03*: &nbsp; 1 paper accepted to CVPR 2025
 - *2024.11*: &nbsp; Serving as the web co-chair for ICMR 2025
 - *2024.06*: &nbsp; 1 paper accepted to NeurIPS 2024
 
 # 📝 Selected Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/quest.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[QuEST: Low-bit Diffusion Model Quantization via Efficient Selective Finetuning](https://arxiv.org/abs/2402.03666) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong>
+
+**Haoxuan Wang**, Yuzhang Shang, Zhihang Yuan, Junyi Wu, Junchi Yan, Yan Yan
+
+[**Code**](https://github.com/hatchetProject/QuEST)  [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/QuEST)](https://github.com/hatchetProject/QuEST)
+
+- Parameter efficient finetuning method for diffusion model quantization. 
+</div>
+</div>
+
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/quest.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[CaO$_2$: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation]() <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong>
+
+**Haoxuan Wang**, Zhenghao Zhao, Junyi Wu, Yuzhang Shang, Gaowen Liu, Yan Yan
+
+[**Code**](https://github.com/hatchetProject/CaO2)  [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/CaO2)](https://github.com/hatchetProject/CaO2)
+
+- Diffusion based method for efficient dataset distillation. 
+</div>
+</div>
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2025</div><img src='images/ltdd.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -53,18 +82,6 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='images/quest.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[QuEST: Low-bit Diffusion Model Quantization via Efficient Selective Finetuning](https://arxiv.org/abs/2402.03666) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong>
-
-**Haoxuan Wang**, Yuzhang Shang, Zhihang Yuan, Junyi Wu, Junchi Yan, Yan Yan
-
-[**Code**](https://github.com/hatchetProject/QuEST)  [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/QuEST)](https://github.com/hatchetProject/QuEST)
-
-- Parameter efficient finetuning method for diffusion model quantization. 
-</div>
-</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">IJCAI 2023</div><img src='images/drst.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -80,7 +97,6 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 [Leveraging Angular Information Between Feature and Classifier for Long-tailed Learning: A Prediction Reformulation Approach](https://arxiv.org/pdf/2212.01565), **Haoxuan Wang**, Junchi Yan
 
-[CaO$_2$: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation](), **Haoxuan Wang**, Zhenghao Zhao, Junyi Wu, Yuzhang Shang, Gaowen Liu, Yan Yan
 
 # 🎖 Honors and Awards
 - *2021-22* First Award of SJTU scholarship
