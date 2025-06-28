@@ -95,6 +95,8 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 </div>
 </div>
 
+[X-Field: A Physically Grounded Representation for 3D X-ray Reconstruction](https://arxiv.org/abs/2503.08596), Feiran Wang\*, Jiachen Tao\*, Junyi Wu\*, **Haoxuan Wang**, Bin Duan, Kai Wang, Zongxin Yang, Yan Yan
+
 [Leveraging Angular Information Between Feature and Classifier for Long-tailed Learning: A Prediction Reformulation Approach](https://arxiv.org/pdf/2212.01565), **Haoxuan Wang**, Junchi Yan
 
 
