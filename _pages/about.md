@@ -47,7 +47,7 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/cao2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[CaO$_2$: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation]() <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong>
+[CaO$_2$: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation](https://arxiv.org/abs/2506.22637v1) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong>
 
 **Haoxuan Wang**, Zhenghao Zhao, Junyi Wu, Yuzhang Shang, Gaowen Liu, Yan Yan
 
