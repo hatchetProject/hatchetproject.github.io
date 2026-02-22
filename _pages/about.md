@@ -22,7 +22,7 @@ I am a third-year PhD student (2023-) in the Department of Computer Science at U
 I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/). I was also a Research Intern at Cisco Research, where I was fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en).
 
 # 🔥 News
-- *2026.01*: &nbsp; [REMAC](https://remac-async.github.io/) is accepted to ICLR 2026!
+- *2026.01*: &nbsp; [REMAC](/remac-async/) is accepted to ICLR 2026!
 - *2025.09*: &nbsp; 3 co-authored papers accepted to NeurIPS 2025!
 - *2025.06*: &nbsp; [QuEST](https://arxiv.org/abs/2402.03666) and [CaO2](https://arxiv.org/abs/2506.22637v1) are accepted to ICCV 2025!
 - *2025.05*: &nbsp; Working as a research intern at Cisco Research
@@ -36,7 +36,7 @@ I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.githu
 <div class='paper-box-text' markdown="1">
 
 [Real-Time Robot Execution with Masked Action Chunking
-](https://remac-async.github.io/) <strong><span class='show_paper_citations' data=''></span></strong>
+](/remac-async/) <strong><span class='show_paper_citations' data=''></span></strong>
 
 **Haoxuan Wang**, Gengyu Zhang, Yan Yan, Yuzhang Shang, Ramana Rao Kompella, Gaowen Liu
 

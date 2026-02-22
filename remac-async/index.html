@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="REMAC allows real-time execution of chunked policies for robot manipulation.">
+  <meta name="keywords" content="Action chunking, VLA, Asynchronous inference, Robot Manipulation, REMAC">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REMAC: Real-Time Robot Execution with Masked Action Chunking</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-title reveal">Real-Time Robot Execution with<br>Masked Action Chunking</h1>
+    <p class="hero-venue reveal">ICML 2025</p>
+    <div class="hero-authors reveal">
+      <a href="https://hatchetproject.github.io/">Haoxuan Wang<sup>1,3</sup></a>,
+      <a href="https://github.com/GabrielZH">Gengyu Zhang<sup>1,3</sup></a>,
+      <a href="https://tomyan555.github.io/">Yan Yan<sup>1</sup></a>,
+      <a href="https://42shawn.github.io/">Yuzhang Shang<sup>2</sup></a>,
+      <a href="https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en">Ramana Rao Kompella<sup>3</sup></a>,
+      <a href="https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en">Gaowen Liu<sup>3</sup></a>
+    </div>
+    <div class="hero-affiliations reveal">
+      <span><sup>1</sup>University of Illinois Chicago</span>
+      <span><sup>2</sup>University of Central Florida</span>
+      <span><sup>3</sup>Cisco Research</span>
+    </div>
+    <div class="hero-links reveal">
+      <a href="https://arxiv.org/abs/2601.20130" class="link-btn">
+        <i class="fas fa-file-pdf"></i>
+        <span>Paper</span>
+      </a>
+      <a href="https://github.com/hatchetProject/REMAC" class="link-btn">
+        <i class="fab fa-github"></i>
+        <span>Code</span>
+      </a>
+      <a href="https://openreview.net/forum?id=r0RGJ1j9on" class="link-btn">
+        <i class="fas fa-comments"></i>
+        <span>OpenReview</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section abstract-section">
+  <div class="container-narrow">
+    <h2 class="section-title reveal">Abstract</h2>
+    <div class="abstract-text reveal">
+      <p>
+        Real-time execution is essential for cyber-physical systems such as robots. These systems operate in dynamic real-world environments
+        where even small delays can undermine responsiveness and compromise policy performance.
+        Asynchronous inference has recently emerged as a system-level paradigm for real-time robot manipulation, enabling the next action chunk
+        to be predicted while the current one is being executed.
+        While this approach achieves real-time responsiveness, naive integration often results in execution failures.
+      </p>
+      <p>
+        Previous methods attributed this failure to <strong>inter-chunk discontinuity</strong> and developed test-time algorithms to smooth chunk boundaries.
+        In contrast, we identify another critical yet overlooked factor: <strong>intra-chunk inconsistency</strong>, where the robot's perception and the
+        executed actions become misaligned.
+      </p>
+      <p>
+        To address this, we propose <strong>REMAC</strong>, which learns corrective adjustments on the pretrained policy through masked action chunking,
+        enabling the learned policy to remain robust to behavioral deviations caused by intra-chunk mismatches.
+        In addition, we adopt a prefix-preserving denoising process during inference to reinforce inter-chunk continuity.
+        Our method introduces no additional inference latency while yielding more reliable policies for asynchronous inference.
+        Extensive experiments in both simulation and real-world settings demonstrate that our method enables faster task completion,
+        maintains robustness across varying delays, and achieves consistently higher success rates.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Framework Diagram -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <div class="figure-card reveal">
+      <img src="./static/images/general.png" alt="Framework overview showing synchronous vs asynchronous inference paradigms">
+      <p class="figure-caption">
+        <strong>Illustration of inference paradigms.</strong> Arrowed lines of the same style indicate processes occurring simultaneously.
+        <strong>(a)</strong> Synchronous inference: VLA inference and robot execution alternate sequentially.
+        <strong>(b)</strong> Asynchronous inference: VLA inference runs concurrently with execution.
+        <strong>(c)</strong> Although asynchronous inference enables real-time execution, it introduces two performance-degrading challenges:
+        exacerbated inter-chunk discontinuity and intra-chunk inconsistency.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Video Demos -->
+<section class="section demos-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Real-World Demonstrations</h2>
+    <p class="section-subtitle reveal">
+      REMAC enables faster task completion and achieves consistently higher success rates. Videos at 1&times; speed.
+    </p>
+    <div class="video-grid reveal">
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/cucumber_plate.MOV" type="video/mp4">
+        </video>
+        <div class="video-label">Cucumber to Plate</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/cubic_plate.MOV" type="video/mp4">
+        </video>
+        <div class="video-label">Cube to Plate</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/cubic_bowl.MOV" type="video/mp4">
+        </video>
+        <div class="video-label">Cube to Bowl</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Delay Injection -->
+<section class="section delay-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Robustness to Delay Injection</h2>
+    <p class="section-subtitle reveal">
+      Performance under different injected inference delays. 1&times; speed.
+    </p>
+    <div class="delay-grid reveal">
+      <div class="delay-column">
+        <div class="delay-badge">+0 ms</div>
+        <div class="video-card">
+          <video autoplay controls muted loop playsinline>
+            <source src="./static/videos/stacked_0ms.MOV" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="delay-column">
+        <div class="delay-badge">+150 ms</div>
+        <div class="video-card">
+          <video autoplay controls muted loop playsinline>
+            <source src="./static/videos/stacked_150ms.MOV" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="figure-card delay-chart reveal">
+      <img src="./static/images/delay_inject.png" alt="Delay injection performance chart">
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container-narrow">
+    <p>
+      This website is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+    <p>
+      Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+    </p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/index.js"></script>
+</body>
+</html>
