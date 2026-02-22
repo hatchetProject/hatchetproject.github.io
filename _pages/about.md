@@ -22,17 +22,17 @@ I am a third-year PhD student (2023-) in the Department of Computer Science at U
 I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/). I was also a Research Intern at Cisco Research, where I was fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en).
 
 # 🔥 News
-- *2026.01*: &nbsp; 1 paper accepted to ICLR 2026
-- *2025.09*: &nbsp; 3 co-authored papers accepted to NeurIPS 2025
-- *2025.06*: &nbsp; 2 papers accepted to ICCV 2025
+- *2026.01*: &nbsp; [REMAC](https://remac-async.github.io/) is accepted to ICLR 2026!
+- *2025.09*: &nbsp; 3 co-authored papers accepted to NeurIPS 2025!
+- *2025.06*: &nbsp; [QuEST](https://arxiv.org/abs/2402.03666) and [CaO2](https://arxiv.org/abs/2506.22637v1) are accepted to ICCV 2025!
 - *2025.05*: &nbsp; Working as a research intern at Cisco Research
-- *2025.03*: &nbsp; 1 paper accepted to CVPR 2025
+- *2025.03*: &nbsp; [LTDD](https://arxiv.org/abs/2408.14506) is accepted to CVPR 2025!
 - *2024.11*: &nbsp; Serving as the web co-chair for ICMR 2025
-- *2024.06*: &nbsp; 1 paper accepted to NeurIPS 2024
+- *2024.06*: &nbsp; [PTQ4DiT](https://arxiv.org/abs/2405.16005) is accepted to NeurIPS 2024!
 
 # 📝 Selected Publications
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/remac.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026 (top 2% by average score)</div><img src='images/remac.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Real-Time Robot Execution with Masked Action Chunking
