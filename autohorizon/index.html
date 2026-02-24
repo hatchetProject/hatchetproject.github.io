@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="AutoHorizon dynamically estimates the execution horizon for each action chunk in flow-based VLA models.">
+  <meta name="keywords" content="Action chunking, VLA, Execution horizon, Robot Manipulation, AutoHorizon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VLA Knows Its Limits</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-title reveal">VLA Knows Its Limits</h1>
+    <p class="hero-tagline reveal"><em>We propose AutoHorizon, the first test-time method for automatically and dynamically determining the execution horizon for flow-based VLAs</em></p>
+    <div class="hero-authors reveal">
+      <a href="https://hatchetproject.github.io/">Haoxuan Wang<sup>1,2</sup></a>,
+      <a href="https://github.com/GabrielZH">Gengyu Zhang<sup>1,2</sup></a>,
+      <a href="https://tomyan555.github.io/">Yan Yan<sup>1</sup></a>,
+      <a href="https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en">Ramana Rao Kompella<sup>2</sup></a>,
+      <a href="https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en">Gaowen Liu<sup>2</sup></a>
+    </div>
+    <div class="hero-affiliations reveal">
+      <span><sup>1</sup>University of Illinois Chicago</span>
+      <span><sup>2</sup>Cisco Research</span>
+    </div>
+    <div class="hero-links reveal">
+      <a href="#" class="link-btn">
+        <i class="fas fa-file-pdf"></i>
+        <span>Paper</span>
+      </a>
+      <a href="#" class="link-btn">
+        <i class="fab fa-github"></i>
+        <span>Code</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section abstract-section">
+  <div class="container-narrow">
+    <h2 class="section-title reveal">Abstract</h2>
+    <div class="abstract-text reveal">
+      <p>
+        Action chunking has become a standard practice in flow-based Vision-Language-Action (VLA) models.
+        However, the effect and choice of the <strong>execution horizon</strong>&mdash;the number of actions to be executed
+        from each predicted chunk&mdash;remains underexplored. In this work, we first show that varying the execution
+        horizon leads to substantial performance deviations, with performance initially improving and then declining
+        as the horizon increases.
+      </p>
+      <p>
+        To uncover the reasons, we analyze the cross- and self-attention weights in flow-based VLAs and reveal two
+        key phenomena: (i) intra-chunk actions attend invariantly to vision&ndash;language tokens, limiting adaptability
+        to environmental changes; and (ii) the initial and terminal action tokens serve as <strong>stable anchors</strong>,
+        forming latent centers around which intermediate actions are organized.
+      </p>
+      <p>
+        Motivated by these insights, we interpret action self-attention weights as a proxy for the model's predictive
+        limit and propose <strong>AutoHorizon</strong>, the first test-time method that dynamically estimates the execution
+        horizon for each predicted action chunk to adapt to changing perceptual conditions. Across simulated and
+        real-world robotic manipulation tasks, AutoHorizon is performant, incurs negligible computational overhead,
+        and generalizes across diverse tasks and flow-based models.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Trend Figures -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <div class="figure-card reveal">
+      <p class="figure-caption figure-caption-top">
+        <strong>Motivation.</strong> Different execution horizons lead to substantial success rate variations, highlighting the importance of choosing an appropriate execution horizon.
+      </p>
+      <div class="trend-grid">
+        <div class="trend-item">
+          <div class="trend-label">Prediction Horizon = 10</div>
+          <img src="./static/images/trend_h10.svg" alt="Success rate trend with prediction horizon 10">
+        </div>
+        <div class="trend-item">
+          <div class="trend-label">Prediction Horizon = 50</div>
+          <img src="./static/images/trend_h50.svg" alt="Success rate trend with prediction horizon 50">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Framework Overview Figure -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <div class="figure-card reveal clickable-figure" data-lightbox="./static/images/autohorizon_overview.svg">
+      <p class="figure-caption figure-caption-top">
+        <strong>Framework overview.</strong> AutoHorizon analyzes action self-attention weights to dynamically
+        determine the optimal execution horizon for each predicted action chunk, adapting to changing perceptual conditions.
+      </p>
+      <img src="./static/images/autohorizon_overview.svg" alt="AutoHorizon framework overview">
+    </div>
+  </div>
+</section>
+
+<!-- Attention Weight Distribution Figure -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <div class="figure-card reveal clickable-figure" data-lightbox="./static/images/attn_heatmap.svg">
+      <p class="figure-caption figure-caption-top">
+        <strong>Methodology.</strong> By analyzing the attention weight distribution, we find that cross- and self-attention heatmaps reveal that intra-chunk
+        actions attend invariantly to vision&ndash;language tokens, while initial and terminal action tokens serve as
+        stable anchors. Based on these observations, we interpret the action self-attention weights as implicit indicators
+        of the model's predictive limit and propose AutoHorizon, a method that dynamically assigns execution horizons to each predicted action chunk at test-time.
+      </p>
+      <img src="./static/images/attn_heatmap.svg" alt="Attention weight distribution">
+    </div>
+  </div>
+</section>
+
+<!-- Tables Section -->
+<section class="section tables-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Experimental Results</h2>
+
+    <!-- Table 1 -->
+    <div class="table-card reveal">
+      <div class="table-header">
+        <strong>Performance comparison of &pi;<sub>0.5</sub> on LIBERO benchmark under different prediction horizons. </strong><em>p</em> is the prediction horizon and <em>e</em> is the execution horizon.
+      </div>
+      <div class="table-scroll">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Setting</th>
+              <th colspan="4"><em>p</em> = 10</th>
+              <th colspan="4"><em>p</em> = 50</th>
+            </tr>
+            <tr>
+              <th>LIB-Spatial</th>
+              <th>LIB-Object</th>
+              <th>LIB-Goal</th>
+              <th>LIB-10</th>
+              <th>LIB-Spatial</th>
+              <th>LIB-Object</th>
+              <th>LIB-Goal</th>
+              <th>LIB-10</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-label"><td colspan="9">Static Oracle</td></tr>
+            <tr>
+              <td><em>e</em> = 0.2<em>p</em></td>
+              <td>98.5<span class="std">&plusmn;0.5</span></td>
+              <td>94.1<span class="std">&plusmn;1.0</span></td>
+              <td>90.4<span class="std">&plusmn;0.0</span></td>
+              <td>76.0<span class="std">&plusmn;1.2</span></td>
+              <td>94.9<span class="std">&plusmn;0.2</span></td>
+              <td>97.1<span class="std">&plusmn;0.2</span></td>
+              <td>92.7<span class="std">&plusmn;1.0</span></td>
+              <td>91.2<span class="std">&plusmn;2.3</span></td>
+            </tr>
+            <tr>
+              <td><em>e</em> = 0.4<em>p</em></td>
+              <td>98.9<span class="std">&plusmn;0.4</span></td>
+              <td>98.1<span class="std">&plusmn;0.5</span></td>
+              <td>94.8<span class="std">&plusmn;0.9</span></td>
+              <td>82.8<span class="std">&plusmn;1.5</span></td>
+              <td>92.4<span class="std">&plusmn;0.3</span></td>
+              <td>94.1<span class="std">&plusmn;1.9</span></td>
+              <td>90.9<span class="std">&plusmn;0.7</span></td>
+              <td>88.7<span class="std">&plusmn;0.8</span></td>
+            </tr>
+            <tr>
+              <td><em>e</em> = 0.6<em>p</em></td>
+              <td>98.8<span class="std">&plusmn;0.3</span></td>
+              <td>98.7<span class="std">&plusmn;0.7</span></td>
+              <td>95.2<span class="std">&plusmn;0.7</span></td>
+              <td>85.9<span class="std">&plusmn;0.8</span></td>
+              <td>87.1<span class="std">&plusmn;1.9</span></td>
+              <td>91.5<span class="std">&plusmn;2.5</span></td>
+              <td>86.0<span class="std">&plusmn;3.3</span></td>
+              <td>82.4<span class="std">&plusmn;2.0</span></td>
+            </tr>
+            <tr>
+              <td><em>e</em> = 0.8<em>p</em></td>
+              <td>98.9<span class="std">&plusmn;0.4</span></td>
+              <td>99.1<span class="std">&plusmn;0.5</span></td>
+              <td>95.1<span class="std">&plusmn;1.1</span></td>
+              <td>88.5<span class="std">&plusmn;1.5</span></td>
+              <td>81.2<span class="std">&plusmn;2.7</span></td>
+              <td>88.9<span class="std">&plusmn;1.6</span></td>
+              <td>78.4<span class="std">&plusmn;2.0</span></td>
+              <td>76.3<span class="std">&plusmn;2.5</span></td>
+            </tr>
+            <tr>
+              <td><em>e</em> = 1.0<em>p</em></td>
+              <td>99.1<span class="std">&plusmn;0.5</span></td>
+              <td>98.8<span class="std">&plusmn;0.9</span></td>
+              <td>97.2<span class="std">&plusmn;1.0</span></td>
+              <td>90.4<span class="std">&plusmn;0.6</span></td>
+              <td>71.5<span class="std">&plusmn;1.3</span></td>
+              <td>67.9<span class="std">&plusmn;0.9</span></td>
+              <td>74.5<span class="std">&plusmn;2.7</span></td>
+              <td>68.6<span class="std">&plusmn;1.2</span></td>
+            </tr>
+            <tr class="separator-row">
+              <td>Static Oracle+</td>
+              <td>99.1<span class="std">&plusmn;0.5</span></td>
+              <td>99.1<span class="std">&plusmn;0.5</span></td>
+              <td>97.2<span class="std">&plusmn;1.0</span></td>
+              <td>90.4<span class="std">&plusmn;0.6</span></td>
+              <td>96.4<span class="std">&plusmn;0.3</span></td>
+              <td>97.6<span class="std">&plusmn;0.6</span></td>
+              <td>93.9<span class="std">&plusmn;0.5</span></td>
+              <td>91.9<span class="std">&plusmn;0.4</span></td>
+            </tr>
+            <tr>
+              <td>Random</td>
+              <td>98.4<span class="std">&plusmn;1.2</span></td>
+              <td>98.4<span class="std">&plusmn;0.7</span></td>
+              <td>96.3<span class="std">&plusmn;0.7</span></td>
+              <td>86.3<span class="std">&plusmn;1.5</span></td>
+              <td>82.8<span class="std">&plusmn;1.5</span></td>
+              <td>90.3<span class="std">&plusmn;1.6</span></td>
+              <td>85.3<span class="std">&plusmn;2.3</span></td>
+              <td>83.3<span class="std">&plusmn;0.7</span></td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>AutoHorizon</strong></td>
+              <td><strong>99.1</strong><span class="std">&plusmn;0.2</span></td>
+              <td><strong>99.2</strong><span class="std">&plusmn;0.3</span></td>
+              <td><strong>97.5</strong><span class="std">&plusmn;0.2</span></td>
+              <td><strong>91.6</strong><span class="std">&plusmn;0.7</span></td>
+              <td><strong>96.5</strong><span class="std">&plusmn;0.9</span></td>
+              <td><strong>98.0</strong><span class="std">&plusmn;0.6</span></td>
+              <td><strong>94.4</strong><span class="std">&plusmn;1.0</span></td>
+              <td><strong>92.1</strong><span class="std">&plusmn;1.0</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Table 3 -->
+    <div class="table-card reveal">
+      <div class="table-header">
+        <strong>Performance comparison using &pi;<sub>0.5</sub> on RoboTwin tasks. </strong> <em>p</em> is the prediction horizon and <em>e</em> is the execution horizon.
+      </div>
+      <div class="table-scroll">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>Adjust Bottle</th>
+              <th>Pick Bottles</th>
+              <th>Place Container</th>
+              <th>Stack Bowls</th>
+              <th>Place Cup</th>
+              <th>Open Laptop</th>
+              <th>Press Stapler</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-label"><td colspan="8">Static Oracle</td></tr>
+            <tr>
+              <td><em>e</em> = 0.2<em>p</em></td>
+              <td>79.0<span class="std">&plusmn;1.4</span></td>
+              <td>40.7<span class="std">&plusmn;0.5</span></td>
+              <td>84.0<span class="std">&plusmn;2.8</span></td>
+              <td>90.7<span class="std">&plusmn;1.2</span></td>
+              <td>83.7<span class="std">&plusmn;0.9</span></td>
+              <td>68.3<span class="std">&plusmn;1.9</span></td>
+              <td>44.0<span class="std">&plusmn;0.0</span></td>
+            </tr>
+            <tr>
+              <td><em>e</em> = 0.4<em>p</em></td>
+              <td>89.0<span class="std">&plusmn;0.0</span></td>
+              <td>67.0<span class="std">&plusmn;0.0</span></td>
+              <td>83.0<span class="std">&plusmn;0.0</span></td>
+              <td>87.3<span class="std">&plusmn;1.7</span></td>
+              <td>77.7<span class="std">&plusmn;2.5</span></td>
+              <td>78.3<span class="std">&plusmn;0.5</span></td>
+              <td>48.0<span class="std">&plusmn;0.0</span></td>
+            </tr>
+            <tr>
+              <td><em>e</em> = 0.6<em>p</em></td>
+              <td>89.3<span class="std">&plusmn;0.9</span></td>
+              <td>65.0<span class="std">&plusmn;0.0</span></td>
+              <td>82.0<span class="std">&plusmn;0.0</span></td>
+              <td>86.7<span class="std">&plusmn;2.5</span></td>
+              <td>68.3<span class="std">&plusmn;0.5</span></td>
+              <td>71.7<span class="std">&plusmn;2.1</span></td>
+              <td>67.0<span class="std">&plusmn;0.0</span></td>
+            </tr>
+            <tr>
+              <td><em>e</em> = 0.8<em>p</em></td>
+              <td>76.7<span class="std">&plusmn;1.2</span></td>
+              <td>58.0<span class="std">&plusmn;1.4</span></td>
+              <td>81.0<span class="std">&plusmn;0.0</span></td>
+              <td>90.0<span class="std">&plusmn;2.8</span></td>
+              <td>66.0<span class="std">&plusmn;1.6</span></td>
+              <td>78.7<span class="std">&plusmn;0.5</span></td>
+              <td>70.0<span class="std">&plusmn;0.0</span></td>
+            </tr>
+            <tr>
+              <td><em>e</em> = 1.0<em>p</em></td>
+              <td>58.7<span class="std">&plusmn;1.2</span></td>
+              <td>30.0<span class="std">&plusmn;0.0</span></td>
+              <td>76.7<span class="std">&plusmn;0.5</span></td>
+              <td>87.7<span class="std">&plusmn;1.2</span></td>
+              <td>56.3<span class="std">&plusmn;3.8</span></td>
+              <td>84.0<span class="std">&plusmn;0.0</span></td>
+              <td>71.0<span class="std">&plusmn;0.0</span></td>
+            </tr>
+            <tr class="separator-row">
+              <td>Static Oracle+</td>
+              <td>98.7<span class="std">&plusmn;0.5</span></td>
+              <td>67.0<span class="std">&plusmn;0.0</span></td>
+              <td>91.0<span class="std">&plusmn;0.8</span></td>
+              <td>90.7<span class="std">&plusmn;1.2</span></td>
+              <td>83.7<span class="std">&plusmn;0.9</span></td>
+              <td>84.0<span class="std">&plusmn;0.0</span></td>
+              <td>72.0<span class="std">&plusmn;0.0</span></td>
+            </tr>
+            <tr>
+              <td>Random</td>
+              <td>85.3<span class="std">&plusmn;0.5</span></td>
+              <td>60.0<span class="std">&plusmn;0.0</span></td>
+              <td>86.0<span class="std">&plusmn;0.0</span></td>
+              <td>88.7<span class="std">&plusmn;3.4</span></td>
+              <td>70.7<span class="std">&plusmn;2.5</span></td>
+              <td>82.0<span class="std">&plusmn;0.0</span></td>
+              <td>69.0<span class="std">&plusmn;0.0</span></td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>AutoHorizon</strong></td>
+              <td><strong>100.0</strong><span class="std">&plusmn;0.0</span></td>
+              <td><strong>68.0</strong><span class="std">&plusmn;0.0</span></td>
+              <td><strong>91.0</strong><span class="std">&plusmn;0.8</span></td>
+              <td><strong>92.0</strong><span class="std">&plusmn;0.8</span></td>
+              <td><strong>85.3</strong><span class="std">&plusmn;2.1</span></td>
+              <td><strong>84.7</strong><span class="std">&plusmn;0.9</span></td>
+              <td><strong>75.0</strong><span class="std">&plusmn;0.0</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Demos -->
+<section class="section demos-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Video Demonstrations</h2>
+    <p class="section-subtitle reveal">
+      Under stable conditions&mdash;such as reaching for or transporting the object&mdash;the estimated horizons increase, accelerating execution progress. In contrast, when the robot begins to physically interact with the environment (e.g., grasping or placing the cube), the estimated horizons adaptively shorten, enhancing reactivity to environmental changes.
+    </p>
+    <div class="video-grid reveal">
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 1</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo2.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 2</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo3.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" class="lightbox-img" alt="Enlarged figure">
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container-narrow">
+    <p>
+      This website is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+    <p>
+      Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+    </p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/index.js"></script>
+<script>
+  // Lightbox functionality
+  document.querySelectorAll('.clickable-figure').forEach(function(fig) {
+    fig.addEventListener('click', function() {
+      var src = this.getAttribute('data-lightbox');
+      var lightbox = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    var lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>
