@@ -214,6 +214,14 @@ body {
   line-height: 1.6;
 }
 
+.video-description {
+  text-align: left;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
 /* ============================
    Abstract
    ============================ */
