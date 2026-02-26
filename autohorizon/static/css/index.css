@@ -214,6 +214,15 @@ body {
   line-height: 1.6;
 }
 
+.section-subtitle-left {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  margin-top: 1rem;
+}
+
 .video-description {
   text-align: left;
   font-size: 1rem;
@@ -520,6 +529,11 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.video-grid-sim {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .video-card {
@@ -640,7 +654,11 @@ body {
   .video-grid {
     grid-template-columns: 1fr;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto 2.5rem;
+  }
+
+  .video-grid-sim {
+    grid-template-columns: 1fr;
   }
 
   .hero-links {
