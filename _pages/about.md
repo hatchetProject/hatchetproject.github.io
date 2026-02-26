@@ -22,6 +22,7 @@ I am a third-year PhD student (2023-) in the Department of Computer Science at U
 I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/). I was also a Research Intern at Cisco Research, where I was fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en).
 
 # 🔥 News
+- *2026.02*: &nbsp; [AutoHorizon](/autohorizon/), the first test-time method for determining the execution horizon for flow-based VLAs, is released! 
 - *2026.01*: &nbsp; [REMAC](/remac-async/) is accepted to ICLR 2026!
 - *2025.09*: &nbsp; 3 co-authored papers accepted to NeurIPS 2025!
 - *2025.06*: &nbsp; [QuEST](https://arxiv.org/abs/2402.03666) and [CaO2](https://arxiv.org/abs/2506.22637v1) are accepted to ICCV 2025!
@@ -43,6 +44,20 @@ I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.githu
 [**Code**](https://github.com/hatchetProject/REMAC) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/REMAC)](https://github.com/hatchetProject/REMAC)
 
 - A real-time robot execution strategy for asynchronous inference.
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='autohorizon/static/images/autohorizon_overview.svg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[VLA Knows Its Limits
+](/autohorizon/) <strong><span class='show_paper_citations' data=''></span></strong>
+
+**Haoxuan Wang**, Gengyu Zhang, Yan Yan, Ramana Rao Kompella, Gaowen Liu
+
+<!-- [**Code**](https://github.com/hatchetProject/REMAC) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/REMAC)](https://github.com/hatchetProject/REMAC) -->
+
+- The first test-time method for dynamically and automatically determining the execution horizon for flow-based VLAs
 </div>
 </div>
 
