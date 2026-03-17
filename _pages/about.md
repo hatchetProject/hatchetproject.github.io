@@ -142,9 +142,12 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 - *2020.09 - 2023.03*&nbsp; Master, Shanghai Jiao Tong University.
 - *2016.09 - 2020.06*&nbsp; Undergraduate, [IEEE Honor Class](https://english.seiee.sjtu.edu.cn/english/info/8338.htm), Shanghai Jiao Tong University.
 
-<!--# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
+# 💬 Talks
+- *2026.03*, "Efficient Robot Execution with Flow-matching Policies", Ohio State University. Hosted by [Zheda Mai](https://zheda-mai.github.io/).
+
+# 📚 Teaching
+- *Fall 2025*,&nbsp; Guest Lecture, Efficient Machine Learning.
+- *Spring 2024*,&nbsp; Teaching Assistant, Deep Learning.
 
 # 💻 Internships
 - *2025.05 - 2025.08*, Research Intern, Cisco Research.
