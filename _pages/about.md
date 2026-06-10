@@ -8,18 +8,15 @@ redirect_from:
   - /about.html
 ---
 
-{% if site.google_scholar_stats_use_cdn %}
-{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
-{% else %}
-{% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
-{% endif %}
-{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
 
-I am a third-year PhD student (2023-) in the Department of Computer Science at University of Illinois Chicago (UIC), supervised by Prof. [Yan Yan](https://tomyan555.github.io/). Prior to joining UIC, I spent a year at Illinois Institute of Technology. I hold both a bachelor's (IEEE honor class) and a master's degree from Shanghai Jiao Tong University, where I was fortunate to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). Additionally, I had a wonderful time working as a research intern with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/) at Caltech. My research interests include Machine Learning Efficiency, 3D Vision and Robotics. Most of the publications can be accessed [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
+I am a third-year PhD student in the Department of Computer Science at the University of Illinois Chicago (UIC), advised by Prof. [Yan Yan](https://tomyan555.github.io/). Before joining UIC, I spent one year at the Illinois Institute of Technology. I received both my bachelor’s degree, as part of the IEEE Honor Class, and my master’s degree from Shanghai Jiao Tong University, where I was fortunate to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). 
 
-I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/). I was also a Research Intern at Cisco Research, where I was fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en).
+I have also been fortunate to work with several wonderful mentors and collaborators. I was a research intern at Caltech, working with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/). I was also a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/), working with Prof. [Bolei Zhou](https://boleizhou.github.io/) and [Wayne Wu](https://wywu.github.io/). I am currently a research intern at Cisco Research, where I am fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en). 
+
+My research interests include machine learning efficiency, robotics and 3D vision. Most of my publications can be found [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
+
 
 # 🔥 News
 - *2026.02*: &nbsp; [AutoHorizon](/autohorizon/), the first test-time method for determining the execution horizon for flow-based VLAs, is released! 
@@ -37,7 +34,7 @@ I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.githu
 <div class='paper-box-text' markdown="1">
 
 [Real-Time Robot Execution with Masked Action Chunking
-](/remac-async/) <strong><span class='show_paper_citations' data=''></span></strong>
+](/remac-async/)
 
 **Haoxuan Wang**, Gengyu Zhang, Yan Yan, Yuzhang Shang, Ramana Rao Kompella, Gaowen Liu
 
@@ -51,11 +48,11 @@ I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.githu
 <div class='paper-box-text' markdown="1">
 
 [VLA Knows Its Limits
-](/autohorizon/) <strong><span class='show_paper_citations' data=''></span></strong>
+](/autohorizon/)
 
 **Haoxuan Wang**, Gengyu Zhang, Yan Yan, Ramana Rao Kompella, Gaowen Liu
 
-<!-- [**Code**](https://github.com/hatchetProject/REMAC) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/REMAC)](https://github.com/hatchetProject/REMAC) -->
+[**Code**](https://github.com/hatchetProject/AutoHorizon) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/AutoHorizon)](https://github.com/hatchetProject/AutoHorizon)
 
 - The first test-time method for dynamically and automatically determining the execution horizon for flow-based VLAs
 </div>
@@ -64,7 +61,7 @@ I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.githu
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/quest.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[QuEST: Low-bit Diffusion Model Quantization via Efficient Selective Finetuning](https://arxiv.org/abs/2402.03666) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong>
+[QuEST: Low-bit Diffusion Model Quantization via Efficient Selective Finetuning](https://arxiv.org/abs/2402.03666)
 
 **Haoxuan Wang**, Yuzhang Shang, Zhihang Yuan, Junyi Wu, Junchi Yan, Yan Yan
 
@@ -77,7 +74,7 @@ I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.githu
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/cao2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[CaO$_2$: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation](https://arxiv.org/abs/2506.22637v1) <strong><span class='show_paper_citations' data='vRXYQvYAAAAJ:2osOgNQ5qMEC'></span></strong>
+[CaO$_2$: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation](https://arxiv.org/abs/2506.22637v1)
 
 **Haoxuan Wang**, Zhenghao Zhao, Junyi Wu, Yuzhang Shang, Gaowen Liu, Yan Yan
 
@@ -118,18 +115,43 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 **Haoxuan Wang**, Zhiding Yu, Yisong Yue, Animashree Anandkumar, Anqi Liu and Junchi Yan
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:u-x6o8ySG0sC)
+<!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vRXYQvYAAAAJ&citation_for_view=vRXYQvYAAAAJ:u-x6o8ySG0sC) -->
 - A novel framework for learning calibrated uncertainties under domain shifts.
 </div>
 </div>
+
+- [ICML 2026] [ReflFlow: Learning Geometry-Guided Ray Tracing for Dynamic Specular Reconstruction](https://arxiv.org/abs/2512.10095), Jiachen Tao, Junyi Wu, **Haoxuan Wang**, Zongxin Yang, Dawen Cai, Yan Yan
 
 - [NeurIPS 2025 (Spotlight)] [X-Field: A Physically Grounded Representation for 3D X-ray Reconstruction](https://arxiv.org/abs/2503.08596), Feiran Wang\*, Jiachen Tao\*, Junyi Wu\*, **Haoxuan Wang**, Bin Duan, Kai Wang, Zongxin Yang, Yan Yan
 
 - [NeurIPS 2025] [Efficient Multimodal Dataset Distillation via Generative Models](https://www.arxiv.org/abs/2509.15472), Zhenghao Zhao, **Haoxuan Wang**, Junyi Wu, Yuzhang Shang, Gaowen Liu, Yan Yan
 
-- [NeurIPS 2025] [Orientation-anchored Hyper-Gaussian for 4D Reconstruction from Casual Videos](https://www.arxiv.org/pdf/2509.23492), Junyi Wu, Jiachen Tao, Haoxuan Wang, Gaowen Liu, Ramana Rao Kompella, Yan Yan
+- [NeurIPS 2025] [Orientation-anchored Hyper-Gaussian for 4D Reconstruction from Casual Videos](https://www.arxiv.org/pdf/2509.23492), Junyi Wu, Jiachen Tao, **Haoxuan Wang**, Gaowen Liu, Ramana Rao Kompella, Yan Yan
 
 - [Preprint] [Leveraging Angular Information Between Feature and Classifier for Long-tailed Learning: A Prediction Reformulation Approach](https://arxiv.org/pdf/2212.01565), **Haoxuan Wang**, Junchi Yan
+
+# <img src='images/robo_logo.png' alt='🤖' style='height: 1.1em; vertical-align: text-bottom;'> Robots I Have Worked With
+
+I deploy and evaluate robot learning policies on real hardware, including:
+
+<div style="display: flex
+; flex-wrap: wrap; gap: 16px; margin: 0.8em 0 1.5em;">
+  <div style="flex: 1 1 200px; min-width: 170px; max-width: 320px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 16px 12px 12px; text-align: center;">
+    <img src='images/franka_emika.png' alt='Franka Research 3' style='width: 100%; height: 190px; object-fit: contain;'>
+    <div style="margin-top: 10px; font-weight: 600;">Franka Research 3</div>
+    <div style="color: #808080; font-size: 0.85em;">Tabletop manipulation</div>
+  </div>
+  <div style="flex: 1 1 200px; min-width: 170px; max-width: 320px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 16px 12px 12px; text-align: center;">
+    <img src='images/piper.png' alt='AgileX PiPER' style='width: 100%; height: 190px; object-fit: contain;'>
+    <div style="margin-top: 10px; font-weight: 600;">AgileX PiPER</div>
+    <div style="color: #808080; font-size: 0.85em;">Single-arm / bimanual setups</div>
+  </div>
+  <div style="flex: 1 1 200px; min-width: 170px; max-width: 320px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 16px 12px 12px; text-align: center;">
+    <img src='images/m20_piper.jpg' alt='Lynx M20 with PiPER arm' style='width: 100%; height: 190px; object-fit: contain;'>
+    <div style="margin-top: 10px; font-weight: 600;">Lynx M20 + PiPER</div>
+    <div style="color: #808080; font-size: 0.85em;">Quadruped mobile manipulation</div>
+  </div>
+</div>
 
 # 🎖 Honors and Awards
 - *2021-22* First Award of SJTU scholarship
@@ -150,5 +172,8 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 - *Spring 2024*,&nbsp; Teaching Assistant, Deep Learning.
 
 # 💻 Internships
+- *2026.06 - Present*, Research Intern, Cisco Research.
 - *2025.05 - 2025.08*, Research Intern, Cisco Research.
 - *2021 - 2022*, Research Intern, Caltech.
+
+
