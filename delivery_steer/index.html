@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Cue the Flow: a dual-system framework that steers frozen flow-matching VLAs with spatial cues for open-world delivery manipulation.">
+  <meta name="keywords" content="Policy Steering, Mobile Manipulation, VLA, Flow matching, Visual Prompting, Open-World Delivery">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cue the Flow: Steering Flow-Matching Policies for Open-World Delivery Manipulation</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=2">
+  <link rel="icon" type="image/png" href="./static/images/favicon.png">
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-title reveal">Cue the Flow: Steering Flow-Matching Policies<br>for Open-World Delivery Manipulation</h1>
+    <p class="hero-tagline reveal"><em>A grounding module turns free-form delivery instructions into a spatial cue; a lightweight contrastive adapter uses that cue to steer a frozen flow-matching VLA toward novel targets &mdash; no policy fine-tuning required.</em></p>
+    <div class="hero-authors reveal">
+      <a href="https://hatchetproject.github.io/">Haoxuan Wang<sup>1</sup></a>,
+      <a href="">Griffin Galimi<sup>2</sup></a>,
+      <a href="">Junhua Huang<sup>2</sup></a>,
+      <a href="">Selina Song<sup>2</sup></a>,
+      <a href="https://wywu.github.io/">Wayne Wu<sup>2</sup></a>,
+      <a href="https://tomyan555.github.io/">Yan Yan<sup>1</sup></a>,
+      <a href="https://boleizhou.github.io/">Bolei Zhou<sup>2</sup></a>
+    </div>
+    <div class="hero-affiliations reveal">
+      <span><sup>1</sup>University of Illinois Chicago</span>
+      <span><sup>2</sup>University of California, Los Angeles</span>
+      <span><sup>&dagger;</sup>Equal advising</span>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section abstract-section">
+  <div class="container-narrow">
+    <h2 class="section-title reveal">Abstract</h2>
+    <div class="abstract-text reveal">
+      <p>
+        Open-world delivery requires mobile manipulators to follow free-form user instructions and manipulate
+        potentially novel objects. Existing dual-system approaches use high-level grounding models to convert
+        language into grounded visual prompts, but their low-level controllers can remain brittle under noisy
+        perception, dynamic scenes, and contact-rich interactions.
+      </p>
+      <p>
+        We instead use a pretrained <strong>flow-matching vision-language-action model as the low-level control
+        interface</strong>, leveraging its reactivity and robustness to environmental changes while treating the
+        grounding output as a <strong>spatial cue</strong> for policy steering. Our key insight is that the pretrained
+        VLA already provides a strong manipulation prior, while the spatial cue supplies the missing target
+        information needed to guide actions under novel language&ndash;object mappings.
+      </p>
+      <p>
+        Concretely, we introduce a lightweight <strong>cue-conditioned adapter</strong>. The adapter is first trained
+        with contrastive objectives to produce salient and spatially discriminative cue representations, and is then
+        supervised to predict a diagonal affine transformation over the generated action chunk, aligning policy
+        steering with the cued target. Across tabletop and mobile-base settings, our method improves instruction
+        following and manipulation success on both in-domain and out-of-domain objects, achieving up to
+        <strong>near 2&times; improvement</strong> in average task success rate with negligible inference overhead.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Overview Figure -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <div class="figure-card reveal clickable-figure" data-lightbox="./static/images/overview.png">
+      <p class="figure-caption figure-caption-top">
+        <strong>The open-world delivery challenge.</strong> <strong>(a.1)</strong> The policy is trained on in-context
+        demonstrations collected in a fixed environment. <strong>(a.2)</strong> In real-world delivery, the robot must
+        execute manipulation under changing environments and novel language&ndash;object mappings.
+        <strong>(b)</strong> A grounding module converts the open-ended instruction into a spatial cue, which
+        conditions a contrastive adapter to predict affine transformations over the frozen flow-matching policy's
+        action output, steering the generated action chunk toward the target object.
+      </p>
+      <img src="./static/images/overview.png" alt="Open-world delivery challenge and method overview">
+    </div>
+  </div>
+</section>
+
+<!-- Method Highlights -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">How It Works</h2>
+    <p class="section-subtitle reveal">
+      Keep the VLA frozen. Ground the instruction once. Steer the action chunk.
+    </p>
+
+    <div class="highlights-grid reveal">
+      <div class="highlight-card">
+        <div class="highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h3>Spatial Cue as the Interface</h3>
+        <p>
+          A zero-shot grounding module (Qwen3-VL + SAM2.1) converts free-form instructions like
+          &ldquo;load the bag with order #2&rdquo; into a Gaussian heatmap at the target object &mdash; a sparse cue
+          that is far easier to produce reliably than dense trajectory-level guidance.
+        </p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><i class="fas fa-crosshairs"></i></div>
+        <h3>Contrastive Cue Encoder</h3>
+        <p>
+          Spatial-shift negatives force the cue representation to encode <em>where</em> the target is rather than what
+          the scene looks like, and a residual encoding against a zero heatmap isolates cue-induced features &mdash;
+          blocking scene-specific shortcuts.
+        </p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><i class="fas fa-sliders-h"></i></div>
+        <h3>Affine Action Steering</h3>
+        <p>
+          The adapter predicts a diagonal scale-and-shift (&gamma;, &beta;) over the frozen policy's action chunk
+          during flow integration &mdash; adding only ~0.02% parameters, with the full pipeline running at 15&nbsp;Hz
+          on a single RTX 5080.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Supplementary Video -->
+<section class="section demos-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Video Overview</h2>
+    <div class="video-feature reveal">
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="./static/videos/supplementary.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Narrated supplementary video (3 min)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="section tables-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Experimental Results</h2>
+    <p class="section-subtitle reveal">
+      Evaluation across three settings of increasing difficulty:
+    </p>
+
+    <div class="settings-grid reveal">
+      <div class="setting-card">
+        <div class="setting-badge">I</div>
+        <div class="setting-text">
+          <div class="setting-name">Seen objects + Paraphrased instructions</div>
+        </div>
+      </div>
+      <div class="setting-card">
+        <div class="setting-badge">II</div>
+        <div class="setting-text">
+          <div class="setting-name">Unseen objects + In-domain instructions</div>
+        </div>
+      </div>
+      <div class="setting-card">
+        <div class="setting-badge">III</div>
+        <div class="setting-text">
+          <div class="setting-name">Unseen objects + Novel instructions</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-card reveal">
+      <div class="table-header">
+        <strong>Success rates (%) under tabletop and mobile-base conditions.</strong> All learned methods share the
+        same fine-tuned &pi;<sub>0.5</sub> backbone. Best results in each column in bold.
+      </div>
+      <div class="table-scroll">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Method</th>
+              <th colspan="4">Tabletop</th>
+              <th colspan="4">Mobile Base</th>
+            </tr>
+            <tr>
+              <th>Setting I</th>
+              <th>Setting II</th>
+              <th>Setting III</th>
+              <th>Average</th>
+              <th>Setting I</th>
+              <th>Setting II</th>
+              <th>Setting III</th>
+              <th>Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Base (&pi;<sub>0.5</sub>)</td>
+              <td>70.8</td><td>45.8</td><td>0.0</td><td>38.9</td>
+              <td>33.3</td><td>50.0</td><td>8.3</td><td>30.5</td>
+            </tr>
+            <tr>
+              <td>Base-L</td>
+              <td>37.5</td><td>8.3</td><td>29.2</td><td>25.0</td>
+              <td>8.3</td><td>0.0</td><td>8.3</td><td>5.5</td>
+            </tr>
+            <tr>
+              <td>MOKA</td>
+              <td>20.8</td><td>25.0</td><td>8.3</td><td>18.0</td>
+              <td>16.7</td><td>8.3</td><td>0.0</td><td>8.3</td>
+            </tr>
+            <tr>
+              <td>VP-VLA</td>
+              <td>58.3</td><td>45.8</td><td>4.2</td><td>36.1</td>
+              <td>58.3</td><td><strong>66.7</strong></td><td>8.3</td><td>44.4</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Ours</strong></td>
+              <td><strong>83.3</strong></td><td><strong>66.7</strong></td><td><strong>66.7</strong></td><td><strong>72.2</strong></td>
+              <td><strong>83.3</strong></td><td><strong>66.7</strong></td><td><strong>41.7</strong></td><td><strong>63.9</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method Comparison Videos -->
+<section class="section demos-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Method Comparison</h2>
+    <p class="section-subtitle reveal">
+      The same delivery task ("load the bag with order #2") executed by each method on a static mobile platform.
+    </p>
+    <div class="video-grid-2 reveal">
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/compare_base.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Base &mdash; untargeted behavior</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/compare_base_l.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Base-L &mdash; biased motion, unreliable grounding</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/compare_vp_vla.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">VP-VLA &mdash; oscillation / wrong target</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/compare_ours.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Ours &mdash; follows the cue and succeeds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mobile-Base Demos -->
+<section class="section demos-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Mobile-Base Demonstrations</h2>
+    <p class="section-subtitle reveal">
+      Cue-conditioned manipulation across diverse instructions and scene configurations.
+    </p>
+    <div class="video-grid reveal">
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 1</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo2.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 2</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo3.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 3</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo4.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 4</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo5.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 5</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/demo6.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Demo 6</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full Delivery Pipeline -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Towards a Complete Delivery Pipeline</h2>
+    <p class="section-subtitle reveal">
+      Combining navigation with autonomous manipulation, indoors and outdoors.
+    </p>
+
+    <div class="video-grid reveal" style="margin-top: 2.5rem;">
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/outdoor1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Outdoor delivery 1 (2&times; speed)</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/outdoor2.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Outdoor delivery 2 (2&times; speed)</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/outdoor3.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Outdoor delivery 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" class="lightbox-img" alt="Enlarged figure">
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container-narrow">
+    <p>
+      This website is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+    <p>
+      Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+    </p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/index.js"></script>
+<script>
+  // Lightbox functionality
+  document.querySelectorAll('.clickable-figure').forEach(function(fig) {
+    fig.addEventListener('click', function() {
+      var src = this.getAttribute('data-lightbox');
+      var lightbox = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    var lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>

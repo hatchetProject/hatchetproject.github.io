@@ -19,6 +19,8 @@ My research interests include machine learning efficiency, robotics and 3D visio
 
 
 # 🔥 News
+- *2026.06*: &nbsp; [TeV](/tev/), an efficient temporally-aware action verifier for flow-matching VLAs, is released!
+- *2026.06*: &nbsp; [Cue the Flow](/delivery_steer/), a spatial-cue steering framework for open-world delivery manipulation, is released!
 - *2026.02*: &nbsp; [AutoHorizon](/autohorizon/), the first test-time method for determining the execution horizon for flow-based VLAs, is released! 
 - *2026.01*: &nbsp; [REMAC](/remac-async/) is accepted to ICLR 2026!
 - *2025.09*: &nbsp; 3 co-authored papers accepted to NeurIPS 2025!
@@ -41,6 +43,30 @@ My research interests include machine learning efficiency, robotics and 3D visio
 [**Code**](https://github.com/hatchetProject/REMAC) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/REMAC)](https://github.com/hatchetProject/REMAC)
 
 - A real-time robot execution strategy for asynchronous inference.
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='tev/static/images/pipeline.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Looking Back to Move Forward: Temporal Verification for Generative Robot Policies
+](/tev/)
+
+**Haoxuan Wang**, Wayne Wu, Yan Yan<sup>&dagger;</sup>, Bolei Zhou<sup>&dagger;</sup>
+
+- An efficient temporally-aware action verification framework for flow-matching VLAs.
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='delivery_steer/static/images/overview.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Cue the Flow: Steering Flow-Matching Policies for Open-World Delivery Manipulation
+](/delivery_steer/)
+
+**Haoxuan Wang**, Griffin Galimi, Junhua Huang, Selina Song, Wayne Wu, Yan Yan, Bolei Zhou
+
+- A spatial-cue-steered dual-system framework for open-world delivery manipulation.
 </div>
 </div>
 
@@ -174,6 +200,6 @@ I deploy and evaluate robot learning policies on real hardware, including:
 # 💻 Internships
 - *2026.06 - Present*, Research Intern, Cisco Research.
 - *2025.05 - 2025.08*, Research Intern, Cisco Research.
-- *2021 - 2022*, Research Intern, Caltech.
+- *2019.06 - 2019.08*, Research Intern, Caltech.
 
 

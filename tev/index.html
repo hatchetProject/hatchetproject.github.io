@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Temporal Verification (TeV): an efficient temporally aware action verification framework for flow-matching VLAs.">
+  <meta name="keywords" content="Action verification, Test-time scaling, VLA, Flow matching, Energy-based model, Robot Manipulation, TeV">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temporal Verification for Generative Robot Policies</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" type="image/png" href="./static/images/favicon.png">
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-title reveal">Looking Back to Move Forward:<br>Temporal Verification for Generative Robot Policies</h1>
+    <p class="hero-tagline reveal"><em>An efficient, temporally-aware verification framework for flow-matching VLAs.</em></p>
+    <div class="hero-authors reveal">
+      <a href="https://hatchetproject.github.io/">Haoxuan Wang<sup>1</sup></a>,
+      <a href="https://wywu.github.io/">Wayne Wu<sup>2</sup></a>,
+      <a href="https://tomyan555.github.io/">Yan Yan<sup>1&dagger;</sup></a>,
+      <a href="https://boleizhou.github.io/">Bolei Zhou<sup>2&dagger;</sup></a>
+    </div>
+    <div class="hero-affiliations reveal">
+      <span><sup>1</sup>University of Illinois Chicago</span>
+      <span><sup>2</sup>University of California, Los Angeles</span>
+      <span><sup>&dagger;</sup>Equal advising</span>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section abstract-section">
+  <div class="container-narrow">
+    <h2 class="section-title reveal">Abstract</h2>
+    <div class="abstract-text reveal">
+      <p>
+        Generative policies have emerged as a promising paradigm for robot learning, combining expressive generative
+        action modeling with scalable imitation learning from large demonstration corpora. Yet when trained on
+        heterogeneous demonstrations, their chunked generation process can produce suboptimal actions, causing errors
+        to compound during execution and eventually driving the robot into out-of-distribution failure states.
+        Action verification has recently emerged as a test-time scaling approach to mitigate this issue &mdash; sampling
+        multiple action candidates and using an external verifier to select the best one. However, existing approaches
+        remain <strong>temporally myopic</strong>: they evaluate candidates using only static-timestep observations,
+        and often rely on large-scale verifiers and additional expert demonstrations.
+      </p>
+      <p>
+        We introduce <strong>Temporal Verification (TeV)</strong>, an efficient temporally aware action verification
+        framework for flow-matching VLAs. TeV first learns a <strong>temporal token</strong> that summarizes recent
+        observation&ndash;action history, allowing candidate chunks to be evaluated as continuations of the robot's
+        execution trajectory rather than isolated predictions. Conditioned on this token, TeV constructs
+        positive&ndash;negative sample pairs without additional expert data or preference annotations, and trains an
+        <strong>energy-based verifier</strong> with a contrastive objective to favor higher-quality chunks that are
+        temporally compatible with recent execution.
+      </p>
+      <p>
+        Beyond post-hoc ranking, TeV uses the learned energy score to <strong>steer intermediate samples</strong>
+        toward lower-energy regions during flow integration. The verifier adds less than 0.15% parameters on top of
+        the frozen base policy and requires no additional expert demonstrations. Extensive experiments in simulation
+        and real-world settings show that TeV provides reliable action candidate ranking, yields consistent
+        task-success gains of 6%&ndash;18%, and produces smoother execution trajectories.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Paradigm Comparison Figure -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <div class="figure-card reveal clickable-figure" data-lightbox="./static/images/paradigm.png">
+      <p class="figure-caption figure-caption-top">
+        <strong>Paradigm comparison.</strong> <strong>(a)</strong> Conventional action verification selects among
+        multiple sampled candidates at each decision step, relying only on the current observation.
+        <strong>(b)</strong> Temporal-consistency methods refine the current prediction using previous action chunks
+        to promote cross-chunk coherence. <strong>(c)</strong> Temporal Verification integrates both: conditioned on
+        past observation&ndash;action context, the learned temporal verifier steers and selects candidates that are
+        consistent with recent execution.
+      </p>
+      <img src="./static/images/paradigm.png" alt="Comparison of action verification, consistency promotion, and temporal verification paradigms">
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section figure-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">How TeV Works</h2>
+    <p class="section-subtitle reveal">
+      A lightweight add-on for flow-matching VLAs &mdash; no policy fine-tuning, no extra demonstrations.
+    </p>
+
+    <div class="highlights-grid reveal">
+      <div class="highlight-card">
+        <div class="highlight-icon"><i class="fas fa-history"></i></div>
+        <h3>Temporal Token</h3>
+        <p>
+          A lightweight temporal encoder compresses the recent observation&ndash;action history into a single compact
+          token, trained with a dynamics-aware future-action prediction objective. It gives the verifier execution
+          context beyond the current observation.
+        </p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><i class="fas fa-balance-scale"></i></div>
+        <h3>Contrastive Energy Verifier</h3>
+        <p>
+          Conditioned on the temporal token, an energy model ranks candidate chunks. Training needs no extra expert
+          data: temporally mismatched expert chunks and coarse-integration policy samples serve as free, informative
+          negatives.
+        </p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><i class="fas fa-route"></i></div>
+        <h3>Steering + Selection</h3>
+        <p>
+          The differentiable energy score guides intermediate samples toward lower-energy regions during flow
+          integration, then selects the lowest-energy completed chunk for execution &mdash; adding less than 0.15%
+          parameters to the base policy.
+        </p>
+      </div>
+    </div>
+
+    <div class="figure-card reveal clickable-figure" data-lightbox="./static/images/pipeline.png">
+      <p class="figure-caption figure-caption-top">
+        <strong>Overview of Temporal Verification.</strong> <strong>(a)</strong> Overall pipeline: observation&ndash;action
+        history is encoded into a temporal token that conditions the energy-based contrastive verifier. At each
+        flow-matching integration step, candidate representations are scored by the verifier; the resulting energies
+        steer intermediate samples during integration and rank completed chunks after integration.
+        <strong>(b)</strong> Verifier training: expert chunks serve as positives, while temporally mismatched chunks
+        and policy-generated deviations serve as negatives. The verifier learns to assign positives lower energy than
+        negatives by at least a specified margin.
+      </p>
+      <img src="./static/images/pipeline.png" alt="TeV pipeline: temporal encoder, contrastive verifier, steering and selection">
+    </div>
+  </div>
+</section>
+
+<!-- Results Tables -->
+<section class="section tables-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Experimental Results</h2>
+    <p class="section-subtitle reveal">
+      All methods share the same frozen &pi;<sub>0.5</sub> backbone and the same candidate budget (M&nbsp;=&nbsp;4).
+    </p>
+
+    <!-- Table 1: LIBERO-Plus -->
+    <div class="table-card reveal">
+      <div class="table-header">
+        <strong>Performance (%) on LIBERO-Plus</strong> across seven perturbation types. Best in bold.
+        TACO<sup>*</sup> uses M&nbsp;=&nbsp;50 candidates.
+      </div>
+      <div class="table-scroll">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Camera</th>
+              <th>Robot</th>
+              <th>Language</th>
+              <th>Light</th>
+              <th>Background</th>
+              <th>Noise</th>
+              <th>Layout</th>
+              <th>Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Base (&pi;<sub>0.5</sub>)</td>
+              <td>41.8</td><td>72.3</td><td>79.9</td><td>82.8</td><td>84.4</td><td>76.2</td><td>84.9</td><td>73.2</td>
+            </tr>
+            <tr>
+              <td>Random</td>
+              <td>43.9</td><td>70.2</td><td>86.7</td><td>81.8</td><td>85.5</td><td>79.3</td><td>81.1</td><td>74.3</td>
+            </tr>
+            <tr>
+              <td>TE</td>
+              <td>44.4</td><td>72.3</td><td>82.2</td><td>76.3</td><td>85.1</td><td>74.8</td><td>84.0</td><td>73.0</td>
+            </tr>
+            <tr>
+              <td>BID</td>
+              <td>44.2</td><td>73.3</td><td>76.2</td><td>81.4</td><td>80.3</td><td>76.6</td><td>81.7</td><td>72.2</td>
+            </tr>
+            <tr>
+              <td>TACO</td>
+              <td>44.9</td><td><strong>77.1</strong></td><td>90.1</td><td>77.4</td><td>86.2</td><td>77.1</td><td>87.2</td><td>76.0</td>
+            </tr>
+            <tr>
+              <td>TACO<sup>*</sup></td>
+              <td>42.7</td><td>74.8</td><td>83.8</td><td>76.6</td><td>76.8</td><td>72.2</td><td>80.1</td><td>71.5</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>TeV (Ours)</strong></td>
+              <td><strong>48.4</strong></td><td>75.6</td><td><strong>91.9</strong></td><td><strong>84.7</strong></td><td><strong>95.8</strong></td><td><strong>80.0</strong></td><td><strong>92.6</strong></td><td><strong>79.8</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Table 2: RoboTwin 2.0 -->
+    <div class="table-card reveal">
+      <div class="table-header">
+        <strong>Performance (%) on RoboTwin 2.0 tasks.</strong> Best in bold.
+      </div>
+      <div class="table-scroll">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Adjust Bottle</th>
+              <th>Pick Bottles</th>
+              <th>Place Container</th>
+              <th>Stack Bowls</th>
+              <th>Place Cup</th>
+              <th>Open Laptop</th>
+              <th>Press Stapler</th>
+              <th>Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Base (&pi;<sub>0.5</sub>)</td>
+              <td>86.0</td><td>48.0</td><td>86.0</td><td>89.0</td><td>78.0</td><td>75.0</td><td>44.0</td><td>72.3</td>
+            </tr>
+            <tr>
+              <td>Random</td>
+              <td>85.0</td><td>52.0</td><td>90.0</td><td>88.0</td><td>79.0</td><td>72.0</td><td>50.0</td><td>73.7</td>
+            </tr>
+            <tr>
+              <td>TE</td>
+              <td>87.0</td><td>43.0</td><td>86.0</td><td>88.0</td><td>82.0</td><td>74.0</td><td>47.0</td><td>72.4</td>
+            </tr>
+            <tr>
+              <td>BID</td>
+              <td>87.0</td><td>59.0</td><td>87.0</td><td>91.0</td><td>76.0</td><td>77.0</td><td>47.0</td><td>74.9</td>
+            </tr>
+            <tr>
+              <td>TACO</td>
+              <td>81.0</td><td>46.0</td><td>87.0</td><td>85.0</td><td>80.0</td><td>62.0</td><td>49.0</td><td>70.0</td>
+            </tr>
+            <tr>
+              <td>TACO<sup>*</sup></td>
+              <td>85.0</td><td>32.0</td><td>85.0</td><td>87.0</td><td>80.0</td><td>67.0</td><td>52.0</td><td>69.7</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>TeV (Ours)</strong></td>
+              <td><strong>95.0</strong></td><td><strong>64.0</strong></td><td><strong>94.0</strong></td><td><strong>93.0</strong></td><td><strong>88.0</strong></td><td><strong>81.0</strong></td><td><strong>54.0</strong></td><td><strong>81.3</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Table 3: Real-world -->
+    <div class="table-card reveal">
+      <div class="table-header">
+        <strong>Task completion score (%) on real-world tasks</strong> (mean &plusmn; std over 30 trials per setting).
+        Best in bold.
+      </div>
+      <div class="table-scroll">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Bottle to Bag</th>
+              <th>Cup Transport</th>
+              <th>Water Filling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Base (&pi;<sub>0.5</sub>)</td>
+              <td>60.7<span class="std">&plusmn;31.9</span></td>
+              <td>79.8<span class="std">&plusmn;27.5</span></td>
+              <td>40.5<span class="std">&plusmn;32.4</span></td>
+            </tr>
+            <tr>
+              <td>BID</td>
+              <td>59.8<span class="std">&plusmn;27.8</span></td>
+              <td>71.5<span class="std">&plusmn;25.9</span></td>
+              <td>51.3<span class="std">&plusmn;30.5</span></td>
+            </tr>
+            <tr>
+              <td>TACO</td>
+              <td>64.0<span class="std">&plusmn;30.5</span></td>
+              <td>75.2<span class="std">&plusmn;21.2</span></td>
+              <td>51.5<span class="std">&plusmn;29.7</span></td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>TeV (Ours)</strong></td>
+              <td><strong>69.3</strong><span class="std">&plusmn;26.7</span></td>
+              <td><strong>88.3</strong><span class="std">&plusmn;15.9</span></td>
+              <td><strong>68.0</strong><span class="std">&plusmn;12.8</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Demos -->
+<section class="section demos-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal">Real-World Demonstrations</h2>
+    <p class="video-description reveal">
+      Real-world tasks require stable execution and smooth movement: the bottle is deformable, and two tasks involve
+      transporting or pouring liquid. Baselines often exhibit abrupt motions and oscillations &mdash; leading to dropped
+      bottles or spilled water &mdash; whereas TeV maintains a steadier trajectory and completes the task reliably.
+    </p>
+
+    <h3 class="section-subtitle-left reveal">Demonstration of TeV's effect</h3>
+    <div class="video-feature reveal">
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/fail_success_comparison.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Baselines exhibit jerky, unstable motion and fail; TeV stays stable and smooth, and succeeds</div>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle-left reveal">Real-World Rollouts</h3>
+    <div class="video-grid reveal">
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/bottle2bag.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Bottle to Bag &mdash; put the water bottle into the bag</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/cup_transport.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Cup Transport &mdash; move the cup from the shelf to the table</div>
+      </div>
+      <div class="video-card">
+        <video autoplay controls muted loop playsinline>
+          <source src="./static/videos/water_filling.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Water Filling &mdash; pour water from the right cup into the left cup</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" class="lightbox-img" alt="Enlarged figure">
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container-narrow">
+    <p>
+      This website is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+    <p>
+      Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+    </p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/index.js"></script>
+<script>
+  // Lightbox functionality
+  document.querySelectorAll('.clickable-figure').forEach(function(fig) {
+    fig.addEventListener('click', function() {
+      var src = this.getAttribute('data-lightbox');
+      var lightbox = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    var lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>
