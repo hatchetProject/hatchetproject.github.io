@@ -19,6 +19,8 @@ My research interests include machine learning efficiency, robotics and 3D visio
 
 
 # 🔥 News
+
+<div class="news-box" markdown="1">
 - *2026.06*: &nbsp; [TeV](/tev/), an efficient temporally-aware action verifier for flow-matching VLAs, is released!
 - *2026.06*: &nbsp; [Cue the Flow](/delivery_steer/), a spatial-cue steering framework for open-world delivery manipulation, is released!
 - *2026.02*: &nbsp; [AutoHorizon](/autohorizon/), the first test-time method for determining the execution horizon for flow-based VLAs, is released! 
@@ -29,6 +31,7 @@ My research interests include machine learning efficiency, robotics and 3D visio
 - *2025.03*: &nbsp; [LTDD](https://arxiv.org/abs/2408.14506) is accepted to CVPR 2025!
 - *2024.11*: &nbsp; Serving as the web co-chair for ICMR 2025
 - *2024.06*: &nbsp; [PTQ4DiT](https://arxiv.org/abs/2405.16005) is accepted to NeurIPS 2024!
+</div>
 
 # 📝 Selected Publications
 

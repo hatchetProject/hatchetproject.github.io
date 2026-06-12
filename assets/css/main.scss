@@ -87,6 +87,30 @@
 
 }
 
+.news-box {
+    max-height: 13em;
+    overflow-y: auto;
+    padding-right: 1em;
+
+    ul {
+        margin-bottom: 0;
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: #c4c4c4 transparent;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #c4c4c4;
+        border-radius: 3px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
 $scroll_offset : 2em;
 h1:before, .anchor:before { 
     content: ''; 
