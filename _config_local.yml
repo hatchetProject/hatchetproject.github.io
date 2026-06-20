@@ -1,0 +1,12 @@
+# Preview-only overrides — load with:
+#   jekyll serve --config _config.yml,_config_local.yml
+# NOT used by GitHub Pages (which only reads _config.yml).
+#
+# Why: the local libsass (jekyll-sass-converter 2.2.0) emits a UTF-8 BOM at the
+# top of the compressed main.css because the theme CSS contains non-ASCII glyphs.
+# WEBrick serves that BOM and Chrome then drops every `@media (min-width: …)`
+# query, which collapses the susy grid and makes the sidebar overlap the
+# article in the preview. `expanded` output uses a `@charset` rule instead of a
+# BOM, so the media queries parse correctly. GitHub Pages is unaffected.
+sass:
+  style: expanded

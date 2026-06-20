@@ -21,9 +21,10 @@ My research interests include machine learning efficiency, robotics and 3D visio
 # 🔥 News
 
 <div class="news-box" markdown="1">
+- *2026.06*: &nbsp; [AutoHorizon](/autohorizon/) is accepted to ECCV 2026!
 - *2026.06*: &nbsp; [TeV](/tev/), an efficient temporally-aware action verifier for flow-matching VLAs, is released!
 - *2026.06*: &nbsp; [Cue the Flow](/delivery_steer/), a spatial-cue steering framework for open-world delivery manipulation, is released!
-- *2026.02*: &nbsp; [AutoHorizon](/autohorizon/), the first test-time method for determining the execution horizon for flow-based VLAs, is released! 
+- *2026.02*: &nbsp; [AutoHorizon](/autohorizon/), a test-time method for determining the execution horizon for flow-based VLAs, is released! 
 - *2026.01*: &nbsp; [REMAC](/remac-async/) is accepted to ICLR 2026!
 - *2025.09*: &nbsp; 3 co-authored papers accepted to NeurIPS 2025!
 - *2025.06*: &nbsp; [QuEST](https://arxiv.org/abs/2402.03666) and [CaO2](https://arxiv.org/abs/2506.22637v1) are accepted to ICCV 2025!
@@ -73,7 +74,7 @@ My research interests include machine learning efficiency, robotics and 3D visio
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='autohorizon/static/images/autohorizon_overview.svg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2026</div><img src='autohorizon/static/images/autohorizon_overview.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [VLA Knows Its Limits
@@ -83,7 +84,7 @@ My research interests include machine learning efficiency, robotics and 3D visio
 
 [**Code**](https://github.com/hatchetProject/AutoHorizon) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/AutoHorizon)](https://github.com/hatchetProject/AutoHorizon)
 
-- The first test-time method for dynamically and automatically determining the execution horizon for flow-based VLAs
+- A test-time method for dynamically and automatically determining the execution horizon for flow-based VLAs
 </div>
 </div>
 
