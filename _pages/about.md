@@ -183,6 +183,11 @@ I deploy and evaluate robot learning policies on real hardware, including:
     <div style="margin-top: 10px; font-weight: 600;">Lynx M20 + PiPER</div>
     <div style="color: #808080; font-size: 0.85em;">Quadruped mobile manipulation</div>
   </div>
+  <div style="flex: 1 1 200px; min-width: 170px; max-width: 320px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 16px 12px 12px; text-align: center;">
+    <img src='images/tidybot.png' alt='Tidybot' loading='lazy' style='width: 100%; height: 190px; object-fit: contain;'>
+    <div style="margin-top: 10px; font-weight: 600;">Tidybot</div>
+    <div style="color: #808080; font-size: 0.85em;">Holonomic mobile manipulation</div>
+  </div>
 </div>
 
 # 🎖 Honors and Awards
