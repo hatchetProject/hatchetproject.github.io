@@ -22,7 +22,6 @@ My research interests include machine learning efficiency, robotics and 3D visio
 
 <div class="news-box" markdown="1">
 - *2026.09*: &nbsp; [Cue the Flow](/delivery_steer/) is accepted to CoRL 2026!
-- *2026.07*: &nbsp; Gave a talk at SJTU-ReThinkLab titled "Advancing Robot Policy Deployment: Efficient, Adaptive, and Verified Control".
 - *2026.06*: &nbsp; [AutoHorizon](/autohorizon/) is accepted to ECCV 2026!
 - *2026.06*: &nbsp; [TeV](/tev/), an efficient temporally-aware action verifier for flow-matching VLAs, is released!
 - *2026.06*: &nbsp; [Cue the Flow](/delivery_steer/), a spatial-cue steering framework for open-world delivery manipulation, is released!
