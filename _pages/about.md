@@ -15,7 +15,7 @@ I am a final-year PhD candidate in the Department of Computer Science at the Uni
 
 I have also been fortunate to work with several wonderful mentors and collaborators. I was a research intern at Caltech, working with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/). I was also a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/), working with Prof. [Bolei Zhou](https://boleizhou.github.io/) and [Wayne Wu](https://wywu.github.io/). I am currently a research intern at Cisco Research, where I am fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en). 
 
-My research interests include machine learning efficiency, robotics and 3D vision. Most of my publications can be found [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
+My research interests include robot learning, machine learning efficiency, and 3D vision. Most of my publications can be found [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
 
 
 # 🔥 News
