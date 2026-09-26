@@ -11,7 +11,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a third-year PhD student in the Department of Computer Science at the University of Illinois Chicago (UIC), advised by Prof. [Yan Yan](https://tomyan555.github.io/). Before joining UIC, I spent one year at the Illinois Institute of Technology. I received both my bachelor’s degree, as part of the IEEE Honor Class, and my master’s degree from Shanghai Jiao Tong University, where I was fortunate to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). 
+I am a final-year PhD candidate in the Department of Computer Science at the University of Illinois Chicago (UIC), advised by Prof. [Yan Yan](https://tomyan555.github.io/). Before joining UIC, I spent one year at the Illinois Institute of Technology. I received both my bachelor’s degree, as part of the IEEE Honor Class, and my master’s degree from Shanghai Jiao Tong University, where I was fortunate to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/).
 
 I have also been fortunate to work with several wonderful mentors and collaborators. I was a research intern at Caltech, working with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/). I was also a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/), working with Prof. [Bolei Zhou](https://boleizhou.github.io/) and [Wayne Wu](https://wywu.github.io/). I am currently a research intern at Cisco Research, where I am fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en). 
 
