@@ -21,6 +21,8 @@ My research interests include machine learning efficiency, robotics and 3D visio
 # 🔥 News
 
 <div class="news-box" markdown="1">
+- *2026.09*: &nbsp; [Cue the Flow](/delivery_steer/) is accepted to CoRL 2026!
+- *2026.07*: &nbsp; Gave a talk at SJTU-ReThinkLab titled "Advancing Robot Policy Deployment: Efficient, Adaptive, and Verified Control".
 - *2026.06*: &nbsp; [AutoHorizon](/autohorizon/) is accepted to ECCV 2026!
 - *2026.06*: &nbsp; [TeV](/tev/), an efficient temporally-aware action verifier for flow-matching VLAs, is released!
 - *2026.06*: &nbsp; [Cue the Flow](/delivery_steer/), a spatial-cue steering framework for open-world delivery manipulation, is released!
@@ -62,7 +64,7 @@ My research interests include machine learning efficiency, robotics and 3D visio
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='delivery_steer/static/images/overview.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CoRL 2026</div><img src='delivery_steer/static/images/overview.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Cue the Flow: Steering Flow-Matching Policies for Open-World Delivery Manipulation
@@ -195,6 +197,7 @@ I deploy and evaluate robot learning policies on real hardware, including:
 - *2016.09 - 2020.06*&nbsp; Undergraduate, [IEEE Honor Class](https://english.seiee.sjtu.edu.cn/english/info/8338.htm), Shanghai Jiao Tong University.
 
 # 💬 Talks
+- *2026.07*, "Advancing Robot Policy Deployment: Efficient, Adaptive, and Verified Control", SJTU-ReThinkLab.
 - *2026.03*, "Efficient Robot Execution with Flow-matching Policies", Ohio State University. Hosted by [Zheda Mai](https://zheda-mai.github.io/).
 
 # 📚 Teaching
