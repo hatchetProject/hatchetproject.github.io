@@ -46,8 +46,6 @@ My research interests include robot learning, machine learning efficiency, and 3
 
 **Haoxuan Wang**, Gengyu Zhang, Ramana Rao Kompella, Gaowen Liu, Yan Yan
 
-[**Paper**](/tttrm/static/papers/TTTRM.pdf)
-
 - A residual memory framework that preserves task-relevant history beyond a robot policy's current observation and explicit memory.
 </div>
 </div>

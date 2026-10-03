@@ -818,24 +818,6 @@ body {
   line-height: 1;
   cursor: pointer;
 }
-.citation-toolbar {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  font-size: 0.85rem;
-}
-.citation-toolbar button {
-  border: 1px solid var(--color-accent);
-  border-radius: var(--radius-sm);
-  padding: 0.6rem 1rem;
-  background: #fff;
-  color: var(--color-accent);
-  font: inherit;
-  cursor: pointer;
-}
-.citation { border-radius: var(--radius-md); font-size: 0.85rem; }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
