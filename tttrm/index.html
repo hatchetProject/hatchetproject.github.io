@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TTT-RM repurposes test-time training as residual memory, preserving task-relevant history beyond a robot policy's current observation and explicit memory.">
+  <meta name="keywords" content="TTT-RM, Test-Time Training, Residual Memory, Robot Learning, Long-Horizon Manipulation, VLA">
+  <meta property="og:title" content="TTT-RM: Test-Time Training as Residual Memory for Robot Policies">
+  <meta property="og:description" content="Residual memory for long-horizon robot control: remember what the current context cannot recover.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hatchetproject.github.io/tttrm/">
+  <meta property="og:image" content="https://hatchetproject.github.io/tttrm/static/images/pipeline.png">
+  <link rel="canonical" href="https://hatchetproject.github.io/tttrm/">
+  <title>TTT-RM: Test-Time Training as Residual Memory for Robot Policies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" type="image/png" href="./static/images/favicon.png">
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+<main>
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="project-name reveal">TTT-RM</p>
+      <h1 class="hero-title reveal">Test-Time Training as Residual Memory for Robot Policies</h1>
+      <p class="hero-tagline reveal"><em>Remembering task-relevant history beyond the current observation and explicit memory.</em></p>
+      <div class="hero-authors reveal">
+        <a href="https://hatchetproject.github.io/">Haoxuan Wang<sup>1</sup></a>,
+        <a href="https://github.com/GabrielZH">Gengyu Zhang<sup>1</sup></a>,
+        <a href="https://scholar.google.com/citations?user=uf9RZboAAAAJ&amp;hl=en">Ramana Rao Kompella<sup>2</sup></a>,
+        <a href="https://scholar.google.com/citations?user=NIv_aeQAAAAJ&amp;hl=en">Gaowen Liu<sup>2</sup></a>,
+        <a href="https://tomyan555.github.io/">Yan Yan<sup>1</sup></a>
+      </div>
+      <div class="hero-affiliations reveal">
+        <span><sup>1</sup>University of Illinois Chicago</span>
+        <span><sup>2</sup>Cisco Research</span>
+      </div>
+      <div class="hero-links reveal">
+        <a class="link-btn" href="./static/papers/TTTRM.pdf">Paper (PDF)</a>
+        <a class="link-btn" href="#demonstrations">Video</a>
+        <a class="link-btn" href="#citation">BibTeX</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section abstract-section">
+    <div class="container-narrow">
+      <h2 class="section-title reveal">Abstract</h2>
+      <div class="abstract-text reveal">
+        <p>Memory is essential for long-horizon robotic manipulation, where successful actions may depend on past events that are no longer recoverable from the current observation. As episodes grow longer, however, retaining the full history becomes increasingly costly, creating a fundamental scalability challenge for memory-augmented policies. Existing approaches address this challenge by either storing selected past observations in a bounded memory bank or compressing interaction history into a fixed-size parametric state through Test-Time Training (TTT). Yet these formulations do not explicitly distinguish between historical information that can already be recovered from the policy&rsquo;s current context and information that must persist beyond it.</p>
+        <p>We introduce <strong>TTT-RM</strong>, which repurposes TTT as <strong>Residual Memory</strong>, using fast weights not to generically compress history but to complement a bounded memory bank by preserving task-relevant historical information that cannot be recovered from the policy&rsquo;s current context. Concretely, TTT-RM learns a history decoder that reconstructs historical representations from the current observation and retrieved memory. The resulting reconstruction residual captures what this context fails to explain and serves as the learning target for TTT. The TTT slow weights are optimized against this residual target so that online fast-weight updates learn to encode complementary historical information over time. The fast-weight state is then queried to produce a residual memory representation that conditions action generation.</p>
+        <p>Extensive experiments on memory-intensive simulation benchmarks and real-world tasks show that TTT-RM consistently improves across multiple memory designs, outperforms diverse baselines, and supports sustained execution on a <strong>three-minute, eight-stage stowing task</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section figure-section">
+    <div class="container-wide">
+      <figure class="figure-card reveal">
+        <a class="figure-link" href="./static/images/memory-paradigms.png" data-lightbox aria-label="Enlarge comparison of memory paradigms">
+          <img src="./static/images/memory-paradigms.png" width="1896" height="452" alt="Explicit Memory stores selected tokens, TTT compresses full history into fast weights, and TTT-RM preserves history unexplained by the existing context.">
+        </a>
+        <figcaption class="figure-caption"><strong>Three ways to remember.</strong> Explicit Memory retains selected historical observations. TTT compresses history into a fixed-size fast-weight state. TTT-RM specializes that state to preserve information the current observation and retrieved memory cannot recover.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section method-section">
+    <div class="container-wide">
+      <h2 class="section-title reveal">How TTT-RM Works</h2>
+      <p class="section-subtitle reveal">A complementary memory pathway that reuses the existing visual stream, with no additional encoder or VLM forward passes.</p>
+      <div class="highlights-grid reveal">
+        <div class="highlight-card">
+          <div class="highlight-icon" aria-hidden="true">01</div>
+          <h3>Identify what is missing</h3>
+          <p>A history decoder reconstructs past representations from the current observation and retrieved memory. Its reconstruction residual defines the information this context cannot explain.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon" aria-hidden="true">02</div>
+          <h3>Learn residual memory</h3>
+          <p>Residual supervision trains the slow write and read parameters so that online fast-weight updates preserve complementary historical information within a fixed-size state.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon" aria-hidden="true">03</div>
+          <h3>Recall history for control</h3>
+          <p>Explicit and residual memory jointly condition action generation. At inference, the history decoder is removed; fast weights update once per policy call and reset each episode.</p>
+        </div>
+      </div>
+      <figure class="figure-card pipeline-card reveal">
+        <a class="figure-link" href="./static/images/pipeline.png" data-lightbox aria-label="Enlarge the TTT-RM method overview">
+          <img src="./static/images/pipeline.png" width="1104" height="500" loading="lazy" alt="TTT-RM pipeline: frozen visual features feed Explicit Memory and a writer that updates TTT fast weights. A training-only history decoder supervises Residual Memory, which conditions the action expert.">
+        </a>
+        <figcaption class="figure-caption"><strong>Method overview.</strong> The history decoder supplies residual targets during training. At deployment, the policy reads from Explicit Memory and the updated fast-weight state to guide its next action chunk.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section tables-section">
+    <div class="container-wide">
+      <h2 class="section-title reveal">Simulation Results</h2>
+      <p class="section-subtitle reveal">Consistent gains across memory designs and tasks that require remembering past observations.</p>
+      <div class="table-card reveal">
+        <div class="table-header"><strong>RoboMME &mdash; average success rate (%)</strong> across Counting, Permanence, Reference, and Imitation. Each TTT-RM variant augments the corresponding Explicit Memory (EM) baseline. Summary of Table 1 in the paper.</div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="RoboMME results; scroll horizontally on small screens">
+          <table class="results-table">
+            <thead><tr><th scope="col">Memory configuration</th><th scope="col">Explicit Memory</th><th scope="col">TTT-RM</th><th scope="col">Gain (pp)</th></tr></thead>
+            <tbody>
+              <tr><td>TokenDrop / Expert</td><td>34.5<span class="std">&plusmn;0.4</span></td><td><strong>37.1</strong><span class="std">&plusmn;1.2</span></td><td>+2.6</td></tr>
+              <tr><td>FrameSamp / Expert</td><td>36.7<span class="std">&plusmn;1.0</span></td><td><strong>38.9</strong><span class="std">&plusmn;0.8</span></td><td>+2.2</td></tr>
+              <tr><td>TokenDrop / Modul</td><td>30.9<span class="std">&plusmn;1.1</span></td><td><strong>38.0</strong><span class="std">&plusmn;0.5</span></td><td>+7.1</td></tr>
+              <tr class="highlight-row"><td>FrameSamp / Modul</td><td>42.8<span class="std">&plusmn;1.9</span></td><td><strong>45.4</strong><span class="std">&plusmn;1.0</span></td><td>+2.6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="table-card reveal">
+        <div class="table-header"><strong>RMBench &mdash; average success rate (%)</strong>. M(1) tasks require a single past observation; M(n) tasks require integrating multiple past observations. Results from Table 2 in the paper.</div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="RMBench results; scroll horizontally on small screens">
+          <table class="results-table">
+            <thead><tr><th scope="col">Memory complexity</th><th scope="col">Base</th><th scope="col">TTT</th><th scope="col">EM</th><th scope="col">TTT-RM</th></tr></thead>
+            <tbody>
+              <tr><td>M(1)</td><td>15.6<span class="std">&plusmn;1.7</span></td><td>11.2<span class="std">&plusmn;0.7</span></td><td>30.5<span class="std">&plusmn;3.3</span></td><td><strong>36.5</strong><span class="std">&plusmn;4.1</span></td></tr>
+              <tr><td>M(n)</td><td>8.8<span class="std">&plusmn;0.8</span></td><td>10.3<span class="std">&plusmn;0.8</span></td><td>10.8<span class="std">&plusmn;0.3</span></td><td><strong>15.8</strong><span class="std">&plusmn;0.3</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demonstrations" class="section demos-section">
+    <div class="container-wide">
+      <h2 class="section-title reveal">Real-World Demonstrations</h2>
+      <p class="section-subtitle reveal">Remembering completed actions, counting objects, and sustaining an eight-stage stowing task on a mobile manipulator.</p>
+      <div class="video-feature reveal">
+        <div class="video-card">
+          <video controls playsinline preload="none" poster="./static/images/video-poster.jpg" width="1280" height="720" aria-label="TTT-RM supplementary video with real-world robot demonstrations">
+            <source src="./static/videos/supplementary.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="./static/videos/supplementary.mp4">Download the supplementary video</a>.
+          </video>
+          <div class="video-label">Supplementary video &mdash; real-world task rollouts and comparisons.</div>
+        </div>
+      </div>
+      <div class="table-card reveal">
+        <div class="table-header"><strong>Mean task progress (%)</strong> over 20 trials per method per task. Progress measures completed task stages, rather than full-task success. Reported in Section 5.2 of the paper; gains are in percentage points (pp).</div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Real-world task progress; scroll horizontally on small screens">
+          <table class="results-table">
+            <thead><tr><th scope="col">Task</th><th scope="col">Strongest baseline</th><th scope="col">TTT-RM</th><th scope="col">Gain (pp)</th></tr></thead>
+            <tbody>
+              <tr><td>Pen to drawer</td><td>55.5</td><td><strong>65.5</strong></td><td>+10.0</td></tr>
+              <tr><td>Pick N pens</td><td>47.0</td><td><strong>73.5</strong></td><td>+26.5</td></tr>
+              <tr class="highlight-row"><td>Stow objects</td><td>50.5</td><td><strong>77.0</strong></td><td>+26.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="citation" class="section citation-section">
+    <div class="container-narrow">
+      <h2 class="section-title">BibTeX</h2>
+      <div class="citation-toolbar"><button id="copy-citation" type="button">Copy citation</button><span id="copy-status" role="status"></span></div>
+      <pre class="citation"><code id="bibtex">@misc{wang2026tttrm,
+  title={Test-Time Training as Residual Memory for Robot Policies},
+  author={Wang, Haoxuan and Zhang, Gengyu and Kompella, Ramana Rao
+          and Liu, Gaowen and Yan, Yan},
+  year={2026},
+  url={https://hatchetproject.github.io/tttrm/}
+}</code></pre>
+    </div>
+  </section>
+</main>
+
+<dialog class="figure-dialog" aria-label="Enlarged research figure">
+  <button class="figure-dialog-close" type="button" aria-label="Close enlarged figure">&times;</button>
+  <img alt="">
+</dialog>
+
+<footer class="site-footer">
+  <div class="container-narrow">
+    <p><a href="/">Haoxuan Wang&rsquo;s homepage</a> &middot; <a href="./static/papers/TTTRM.pdf">Read the paper</a></p>
+    <p>Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

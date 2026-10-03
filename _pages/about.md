@@ -21,6 +21,7 @@ My research interests include robot learning, machine learning efficiency, and 3
 # 🔥 News
 
 <div class="news-box" markdown="1">
+- *2026.10*: &nbsp; [TTT-RM](/tttrm/), a residual memory framework for long-horizon robot policies, is released!
 - *2026.09*: &nbsp; [Cue the Flow](/delivery_steer/) is accepted to CoRL 2026!
 - *2026.06*: &nbsp; [AutoHorizon](/autohorizon/) is accepted to ECCV 2026!
 - *2026.06*: &nbsp; [TeV](/tev/), an efficient temporally-aware action verifier for flow-matching VLAs, is released!
@@ -36,6 +37,20 @@ My research interests include robot learning, machine learning efficiency, and 3
 </div>
 
 # 📝 Selected Publications
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='tttrm/static/images/pipeline.png' alt="TTT-RM method overview" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Test-Time Training as Residual Memory for Robot Policies
+](/tttrm/)
+
+**Haoxuan Wang**, Gengyu Zhang, Ramana Rao Kompella, Gaowen Liu, Yan Yan
+
+[**Paper**](/tttrm/static/papers/TTTRM.pdf)
+
+- A residual memory framework that preserves task-relevant history beyond a robot policy's current observation and explicit memory.
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026 (top 2% by average score)</div><img src='images/remac.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
