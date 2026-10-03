@@ -50,20 +50,6 @@ My research interests include robot learning, machine learning efficiency, and 3
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026 (top 2% by average score)</div><img src='images/remac.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Real-Time Robot Execution with Masked Action Chunking
-](/remac-async/)
-
-**Haoxuan Wang**, Gengyu Zhang, Yan Yan, Yuzhang Shang, Ramana Rao Kompella, Gaowen Liu
-
-[**Code**](https://github.com/hatchetProject/REMAC) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/REMAC)](https://github.com/hatchetProject/REMAC)
-
-- A real-time robot execution strategy for asynchronous inference.
-</div>
-</div>
-
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='tev/static/images/pipeline.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -99,6 +85,20 @@ My research interests include robot learning, machine learning efficiency, and 3
 [**Code**](https://github.com/hatchetProject/AutoHorizon) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/AutoHorizon)](https://github.com/hatchetProject/AutoHorizon)
 
 - A test-time method for dynamically and automatically determining the execution horizon for flow-based VLAs
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026 (top 2% by average score)</div><img src='images/remac.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Real-Time Robot Execution with Masked Action Chunking
+](/remac-async/)
+
+**Haoxuan Wang**, Gengyu Zhang, Yan Yan, Yuzhang Shang, Ramana Rao Kompella, Gaowen Liu
+
+[**Code**](https://github.com/hatchetProject/REMAC) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/REMAC)](https://github.com/hatchetProject/REMAC)
+
+- A real-time robot execution strategy for asynchronous inference.
 </div>
 </div>
 
