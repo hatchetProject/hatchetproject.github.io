@@ -17,6 +17,8 @@ I have also been fortunate to work with several wonderful mentors and collaborat
 
 My research interests include robot learning, machine learning efficiency, and 3D vision. Most of my publications can be found [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
 
+<p style="color: #c62828;">I am actively seeking full-time positions in academia and industry starting in 2027.</p>
+
 
 # 🔥 News
 
@@ -202,11 +204,6 @@ I deploy and evaluate robot learning policies on real hardware, including:
     <div style="color: #808080; font-size: 0.85em;">Holonomic mobile manipulation</div>
   </div>
 </div>
-
-# 🎖 Honors and Awards
-- *2021-22* First Award of SJTU scholarship
-- *2020.06* Graduation with honor, University Graduate Excellence Award of SJTU
-- *2019.11* First Award of Zhiyuan Research Program
 
 # 📖 Education
 - *2024.12 - present*&nbsp; PhD, University of Illinois at Chicago. (Transferred from IIT)
