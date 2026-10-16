@@ -11,7 +11,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a final-year PhD candidate in the Department of Computer Science at the University of Illinois Chicago (UIC), advised by Prof. [Yan Yan](https://tomyan555.github.io/). I transferred to UIC from the Illinois Institute of Technology in December 2024. I received my bachelor’s degree through the [IEEE Honor Class](https://english.seiee.sjtu.edu.cn/english/info/8338.htm) in June 2020 and my master’s degree in March 2023 from Shanghai Jiao Tong University, where I was fortunate to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/).
+I am a final-year PhD candidate in the Department of Computer Science at the University of Illinois Chicago (UIC), advised by Prof. [Yan Yan](https://tomyan555.github.io/). I transferred to UIC from the Illinois Institute of Technology in December 2024. I received my bachelor’s degree through the [IEEE Honor Class](https://english.seiee.sjtu.edu.cn/english/info/8338.htm) in 2020 and my master’s degree in 2023 from Shanghai Jiao Tong University, where I was fortunate to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/).
 
 I have also been fortunate to work with several wonderful mentors and collaborators. I was a research intern at Caltech, working with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/). I was also a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/), working with Prof. [Bolei Zhou](https://boleizhou.github.io/) and [Wayne Wu](https://wywu.github.io/). I also interned at Cisco Research, where I was fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en).
 
@@ -177,6 +177,8 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 - [Preprint] [Leveraging Angular Information Between Feature and Classifier for Long-tailed Learning: A Prediction Reformulation Approach](https://arxiv.org/pdf/2212.01565), **Haoxuan Wang**, Junchi Yan
 
+<span class='anchor' id='robots'></span>
+
 # <img src='images/robo_logo.png' alt='🤖' style='height: 1.1em; vertical-align: text-bottom;'> Robots I Have Worked With
 
 I deploy and evaluate robot learning policies on real hardware, including:
@@ -205,9 +207,13 @@ I deploy and evaluate robot learning policies on real hardware, including:
   </div>
 </div>
 
+<span class='anchor' id='talks'></span>
+
 # 💬 Talks
 - *2026.07*, "Advancing Robot Policy Deployment: Efficient, Adaptive, and Verified Control", SJTU-ReThinkLab.
 - *2026.03*, "Efficient Robot Execution with Flow-matching Policies", Ohio State University. Hosted by [Zheda Mai](https://zheda-mai.github.io/).
+
+<span class='anchor' id='teaching'></span>
 
 # 📚 Teaching
 - *Fall 2025*,&nbsp; Guest Lecture, Efficient Machine Learning.
