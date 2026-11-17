@@ -61,6 +61,8 @@ My research interests include robot learning, machine learning efficiency, and 3
 
 **Haoxuan Wang**, Wayne Wu, Yan Yan<sup>&dagger;</sup>, Bolei Zhou<sup>&dagger;</sup>
 
+[**arXiv**](https://arxiv.org/abs/2609.39038) [**Project Page**](/tev/)
+
 - An efficient temporally-aware action verification framework for flow-matching VLAs.
 </div>
 </div>
