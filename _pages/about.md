@@ -56,12 +56,11 @@ My research interests include robot learning, machine learning efficiency, and 3
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='tev/static/images/pipeline.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Looking Back to Move Forward: Temporal Verification for Generative Robot Policies
-](/tev/)
+[Looking Back to Move Forward: Temporal Verification for Generative Robot Policies](https://arxiv.org/abs/2609.39038)
 
 **Haoxuan Wang**, Wayne Wu, Yan Yan<sup>&dagger;</sup>, Bolei Zhou<sup>&dagger;</sup>
 
-[**arXiv**](https://arxiv.org/abs/2609.39038) [**Project Page**](/tev/)
+[**Project Page**](/tev/)
 
 - An efficient temporally-aware action verification framework for flow-matching VLAs.
 </div>
@@ -70,10 +69,11 @@ My research interests include robot learning, machine learning efficiency, and 3
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CoRL 2026</div><img src='delivery_steer/static/images/overview.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Cue the Flow: Steering Flow-Matching Policies for Open-World Delivery Manipulation
-](/delivery_steer/)
+[Cue the Flow: Steering Flow-Matching Policies for Open-World Delivery Manipulation](https://arxiv.org/abs/2609.38989)
 
 **Haoxuan Wang**, Griffin Galimi, Junhua Huang, Selina Song, Wayne Wu, Yan Yan, Bolei Zhou
+
+[**Project Page**](/delivery_steer/)
 
 - A spatial-cue-steered dual-system framework for open-world delivery manipulation.
 </div>
